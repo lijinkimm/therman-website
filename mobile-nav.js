@@ -34,8 +34,7 @@
     header.insertBefore(logo, header.firstChild);
   }
 
-  function ensureToggleBound(header) {
-    var toggle = header.querySelector("#menu-toggle");
+  function ensureToggleBound(toggle) {
     if (!toggle || toggle.dataset.navBound) return;
     toggle.dataset.navBound = "1";
     // The nav bar is always visible now, so this button no longer opens
@@ -45,20 +44,25 @@
     });
   }
 
+  // The header and the nav bar used to be two separate fixed boxes,
+  // stacked with a gap between them — move the toggle button out of the
+  // header and into the bar itself so they read as one unified row. The
+  // runtime can replace the header's contents with a fresh button node at
+  // any time, so re-check and re-move on every relevant mutation rather
+  // than doing this once.
+  function relocateToggle(header, overlay) {
+    var toggle = header.querySelector("#menu-toggle");
+    if (!toggle || !overlay || toggle.parentElement === overlay) return;
+    ensureToggleBound(toggle);
+    overlay.appendChild(toggle);
+  }
+
   ready(function () {
     var header = document.getElementById("site-header");
     var toggle = document.getElementById("menu-toggle");
     if (!header || !toggle) return;
 
     ensureLogo(header);
-    ensureToggleBound(header);
-    // the page's own runtime re-renders the header subtree after our first
-    // pass (sometimes replacing the button itself), silently dropping any
-    // DOM node/listener it didn't create — watch for that and redo it.
-    new MutationObserver(function () {
-      ensureLogo(header);
-      ensureToggleBound(header);
-    }).observe(header, { childList: true, subtree: true });
 
     if (!document.getElementById("mobile-nav-overlay")) {
       var overlay = document.createElement("div");
@@ -105,6 +109,13 @@
         }
       });
     }
+
+    var overlay = document.getElementById("mobile-nav-overlay");
+    relocateToggle(header, overlay);
+    new MutationObserver(function () {
+      ensureLogo(header);
+      relocateToggle(header, overlay);
+    }).observe(header, { childList: true, subtree: true });
 
     // The nav bar is always visible on mobile now (no hamburger toggle),
     // fixed just below the header — push the page's own content down by
