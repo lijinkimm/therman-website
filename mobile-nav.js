@@ -118,5 +118,44 @@
         attributeFilter: ["src"]
       });
     }
+
+    // A handful of pages have a title-row (heading + paragraph) as a
+    // standalone <div>, not wrapped in a <section> with its hero media —
+    // so the CSS-only image-first reorder (which relies on both being
+    // children of one matched <section>) can't reach it. Move the media
+    // section in front of it here instead, on mobile only. The runtime's
+    // re-render can put the DOM back the way it found it (same as the
+    // header/video resets above), so keep reapplying whenever that happens.
+    if (window.matchMedia("(max-width: 768px)").matches) {
+      var reorderStandaloneIntros = function () {
+        var introDivs = document.querySelectorAll(
+          'div[style*="grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 34px; align-items: end"]'
+        );
+        var moved = false;
+        introDivs.forEach(function (div) {
+          if (div.parentElement.tagName === "SECTION") return; // handled by CSS already
+          var prev = div.previousElementSibling;
+          var next = div.nextElementSibling;
+          if (prev && prev.tagName === "SECTION" && !prev.style.gridTemplateColumns) return; // already moved
+          if (next && next.tagName === "SECTION" && !next.style.gridTemplateColumns) {
+            next.parentNode.insertBefore(next, div);
+            moved = true;
+          }
+        });
+        return moved;
+      };
+      reorderStandaloneIntros();
+      // React (loaded from a CDN at runtime) can still be mid-render when
+      // this script runs, so the target elements may not exist yet — keep
+      // checking on DOM changes until the move succeeds, then stop
+      // watching (short-lived, not a permanent observer).
+      var introObserver = new MutationObserver(function () {
+        if (reorderStandaloneIntros()) introObserver.disconnect();
+      });
+      introObserver.observe(document.body, { childList: true, subtree: true });
+      setTimeout(function () {
+        introObserver.disconnect();
+      }, 15000);
+    }
   });
 })();
