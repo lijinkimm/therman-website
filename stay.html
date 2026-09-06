@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&amp;family=Jost:wght@100..900&amp;display=swap" rel="stylesheet">
 <script src="./image-slot.js"></script>
-<script src="./mobile-nav.js?v=7"></script>
+<script src="./mobile-nav.js?v=8"></script>
 <style>
   * { box-sizing: border-box; }
   html { scroll-padding-top: 130px; scroll-behavior: smooth; }
@@ -95,20 +95,44 @@
     #menu-toggle span { display: block !important; width: 100% !important; height: 5px !important; background: #0a0a0a !important; flex: none !important; }
     #mobile-logo { display: none !important; }
     #mobile-nav-overlay {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+      display: block;
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 300;
       background: #fdfdfc;
-      padding: 12px 56px 8px 16px;
+      padding: 14px 56px 14px 16px;
       border-bottom: 1px solid #e2e0da;
       box-shadow: 0 8px 16px rgba(10, 10, 10, 0.06);
     }
-    #mobile-nav-overlay > a {
+    #mobile-nav-overlay .mn-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+    #mobile-nav-overlay .mn-brand {
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #0a0a0a;
+    }
+    #mobile-nav-overlay .mn-code {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      color: #0a0a0a;
+    }
+    #mobile-nav-overlay .mn-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 16px;
+      row-gap: 6px;
+    }
+    #mobile-nav-overlay .mn-grid > a {
       display: block;
       font-family: 'Jost', sans-serif;
       font-weight: 300;
@@ -116,29 +140,33 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       white-space: nowrap;
-      padding: 6px 10px;
-      border-left: 1px solid #e2e0da;
       color: #0a0a0a;
     }
-    #mobile-nav-overlay > a:first-child { border-left: none; padding-left: 0; }
-    #mobile-nav-overlay > a.mn-active { font-weight: 500; }
+    #mobile-nav-overlay .mn-grid > a.mn-active {
+      background: #0a0a0a;
+      color: #fdfdfc;
+      padding: 2px 8px;
+      margin: -2px -8px;
+      width: fit-content;
+    }
     #mobile-nav-overlay .mn-sub {
       display: none;
-      flex: 1 0 100%;
+      grid-column: 1 / -1;
       flex-wrap: wrap;
-      padding-top: 4px;
+      align-items: center;
+      gap: 6px 18px;
+      margin: 6px -16px 0;
+      padding: 8px 16px;
+      background: #0a0a0a;
     }
     #mobile-nav-overlay .mn-sub.mn-sub-open { display: flex; }
     #mobile-nav-overlay .mn-sub a {
-      font-size: 10.5px;
-      letter-spacing: 0.08em;
+      font-size: 10px;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       white-space: nowrap;
-      padding: 6px 10px;
-      border-left: 1px solid #e2e0da;
-      color: #6b6b66;
+      color: #fdfdfc;
     }
-    #mobile-nav-overlay .mn-sub a:first-child { border-left: none; padding-left: 0; }
     [style*="font-size: 122px"] { font-size: 52px !important; }
     [style*="font-size: 60px"] { font-size: 34px !important; }
     p[style*="margin: 0px 0px 18px"] { margin: 0 0 8px !important; }

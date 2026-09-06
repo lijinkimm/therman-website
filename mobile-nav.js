@@ -5,8 +5,6 @@
   }
 
   var NAV_LINKS = [
-    { href: "./brand.html", label: "THERMAN" },
-    { href: "./stay.html", label: "WELLNESS & STAY" },
     { href: "./dining.html", label: "DINING", sub: [
       { href: "./gamasote.html", label: "GAMASOTE" },
       { href: "./jang-paul-gourmet.html", label: "JANG PAUL GOURMET" },
@@ -18,6 +16,7 @@
       { href: "./amac-cosmetic.html", label: "AMAC COSMETICS" },
       { href: "./amac-medi.html", label: "AMAC MEDI" }
     ] },
+    { href: "./stay.html", label: "WELLNESS & STAY" },
     { href: "./product.html", label: "PRODUCT", sub: [
       { href: "./fabric.html", label: "TEXTILES" },
       { href: "./furniture.html", label: "FURNITURE" },
@@ -67,15 +66,32 @@
     if (!document.getElementById("mobile-nav-overlay")) {
       var overlay = document.createElement("div");
       overlay.id = "mobile-nav-overlay";
+
+      var topRow = document.createElement("div");
+      topRow.className = "mn-top-row";
+      var brand = document.createElement("a");
+      brand.href = "./brand.html";
+      brand.className = "mn-brand";
+      brand.textContent = "THERMAN";
+      var code = document.createElement("a");
+      code.href = "./index.html";
+      code.className = "mn-code";
+      code.textContent = "53F4_2H";
+      topRow.appendChild(brand);
+      topRow.appendChild(code);
+      overlay.appendChild(topRow);
+
+      var grid = document.createElement("div");
+      grid.className = "mn-grid";
       NAV_LINKS.forEach(function (item) {
         var a = document.createElement("a");
         a.href = item.href;
         a.textContent = item.label;
-        overlay.appendChild(a);
+        grid.appendChild(a);
         if (!item.sub) return;
-        // Items with sub-links reveal their subs as an extra wrapped row
-        // in the same bar on tap (not a separate flyout), and the tapped
-        // item gets bolded so it reads as the current section.
+        // Items with sub-links reveal their subs as an extra row spanning
+        // both grid columns on tap, and the tapped item gets bolded so it
+        // reads as the current section.
         var subWrap = document.createElement("div");
         subWrap.className = "mn-sub";
         item.sub.forEach(function (s) {
@@ -84,7 +100,7 @@
           sa.textContent = s.label;
           subWrap.appendChild(sa);
         });
-        overlay.appendChild(subWrap);
+        grid.appendChild(subWrap);
         a.addEventListener("click", function (e) {
           e.preventDefault();
           var wasOpen = subWrap.classList.contains("mn-sub-open");
@@ -101,6 +117,7 @@
           applyNavBarSpace();
         });
       });
+      overlay.appendChild(grid);
       document.body.appendChild(overlay);
 
       overlay.addEventListener("click", function (e) {
