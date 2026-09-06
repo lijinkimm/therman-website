@@ -83,32 +83,33 @@
 
       var grid = document.createElement("div");
       grid.className = "mn-grid";
-      // Every sub-row lands in the same fixed grid row (right after the
-      // two rows of main items), regardless of which item is tapped —
-      // otherwise CSS grid auto-placement slots it in wherever the tapped
-      // item's own row happens to have room, which reads as "random".
-      var subRow = Math.ceil(NAV_LINKS.length / 2) + 1;
+      // Sub-lists live in their own container BELOW the grid entirely
+      // (not as grid items) — the page runtime has a habit of scrambling
+      // explicitly-set grid-column/grid-row (normalizing them into a
+      // grid-area shorthand with the values swapped), which made the
+      // sub-row land in the wrong place. Plain DOM flow can't be scrambled
+      // the same way, and it guarantees the sub-list always renders in the
+      // same spot at the bottom, regardless of which item was tapped.
+      var subContainer = document.createElement("div");
+      subContainer.className = "mn-sub-container";
       NAV_LINKS.forEach(function (item, i) {
         var a = document.createElement("a");
         a.href = item.href;
         a.textContent = item.label;
-        a.style.gridColumn = (i % 2) + 1;
-        a.style.gridRow = Math.floor(i / 2) + 1;
         grid.appendChild(a);
         if (!item.sub) return;
-        // Items with sub-links reveal their subs as an extra row spanning
-        // both grid columns on tap, and the tapped item gets bolded so it
-        // reads as the current section.
+        // Items with sub-links reveal their subs as a bar below the whole
+        // grid on tap, and the tapped item gets bolded so it reads as the
+        // current section.
         var subWrap = document.createElement("div");
         subWrap.className = "mn-sub";
-        subWrap.style.gridRow = subRow;
         item.sub.forEach(function (s) {
           var sa = document.createElement("a");
           sa.href = s.href;
           sa.textContent = s.label;
           subWrap.appendChild(sa);
         });
-        grid.appendChild(subWrap);
+        subContainer.appendChild(subWrap);
         a.addEventListener("click", function (e) {
           e.preventDefault();
           var wasOpen = subWrap.classList.contains("mn-sub-open");
@@ -126,6 +127,7 @@
         });
       });
       overlay.appendChild(grid);
+      overlay.appendChild(subContainer);
       document.body.appendChild(overlay);
 
       overlay.addEventListener("click", function (e) {
