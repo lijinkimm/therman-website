@@ -38,8 +38,10 @@
     var toggle = header.querySelector("#menu-toggle");
     if (!toggle || toggle.dataset.navBound) return;
     toggle.dataset.navBound = "1";
+    // The nav bar is always visible now, so this button no longer opens
+    // a menu — it replaces the text logo as the way back to the home page.
     toggle.addEventListener("click", function () {
-      document.body.classList.toggle("mobile-nav-open");
+      window.location.href = "./index.html";
     });
   }
 
