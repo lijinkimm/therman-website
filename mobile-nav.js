@@ -34,18 +34,29 @@
     header.insertBefore(logo, header.firstChild);
   }
 
+  function ensureToggleBound(header) {
+    var toggle = header.querySelector("#menu-toggle");
+    if (!toggle || toggle.dataset.navBound) return;
+    toggle.dataset.navBound = "1";
+    toggle.addEventListener("click", function () {
+      document.body.classList.toggle("mobile-nav-open");
+    });
+  }
+
   ready(function () {
     var header = document.getElementById("site-header");
     var toggle = document.getElementById("menu-toggle");
     if (!header || !toggle) return;
 
     ensureLogo(header);
+    ensureToggleBound(header);
     // the page's own runtime re-renders the header subtree after our first
-    // pass, wiping any DOM node it didn't create itself (like our logo) —
-    // watch for that and put it back.
+    // pass (sometimes replacing the button itself), silently dropping any
+    // DOM node/listener it didn't create — watch for that and redo it.
     new MutationObserver(function () {
       ensureLogo(header);
-    }).observe(header, { childList: true });
+      ensureToggleBound(header);
+    }).observe(header, { childList: true, subtree: true });
 
     if (!document.getElementById("mobile-nav-overlay")) {
       var overlay = document.createElement("div");
@@ -73,13 +84,6 @@
         if (e.target.tagName === "A") {
           document.body.classList.remove("mobile-nav-open");
         }
-      });
-    }
-
-    if (!toggle.dataset.navBound) {
-      toggle.dataset.navBound = "1";
-      toggle.addEventListener("click", function () {
-        document.body.classList.toggle("mobile-nav-open");
       });
     }
 
