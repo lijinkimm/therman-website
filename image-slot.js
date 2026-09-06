@@ -331,10 +331,7 @@
     '.empty:hover .sub{opacity:1}' +
     ':host([data-over]) .frame{outline:2px solid #c96442;outline-offset:-2px;' +
     '  background:rgba(201,100,66,.10)}' +
-    '.ring{position:absolute;inset:0;pointer-events:none;border:1.5px dashed currentColor;' +
-    '  opacity:.35;transition:border-color .12s,opacity .12s}' +
-    ':host([data-over]) .ring{border-color:#c96442;opacity:1}' +
-    ':host([data-filled]) .ring{display:none}' +
+    '.ring{display:none}' +
     // Controls overlay INSIDE the frame, pinned to the top-right corner, so
     // a full-bleed slot in an overflow:hidden container still shows them
     // (the old below-mask placement got clipped). Credit sits bottom-left,
