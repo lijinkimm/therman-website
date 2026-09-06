@@ -65,16 +65,11 @@
         var a = document.createElement("a");
         a.href = item.href;
         a.textContent = item.label;
-        if (!item.sub) {
-          overlay.appendChild(a);
-          return;
-        }
-        // Items with sub-links get a black flyout (matches the desktop
-        // hover dropdown) that opens on tap instead of showing the subs
-        // inline in the bar — keeps the bar itself to just the 5 main items.
-        var wrap = document.createElement("span");
-        wrap.style.position = "relative";
-        wrap.style.display = "inline-block";
+        overlay.appendChild(a);
+        if (!item.sub) return;
+        // Items with sub-links reveal their subs as an extra wrapped row
+        // in the same bar on tap (not a separate flyout), and the tapped
+        // item gets bolded so it reads as the current section.
         var subWrap = document.createElement("div");
         subWrap.className = "mn-sub";
         item.sub.forEach(function (s) {
@@ -83,32 +78,28 @@
           sa.textContent = s.label;
           subWrap.appendChild(sa);
         });
+        overlay.appendChild(subWrap);
         a.addEventListener("click", function (e) {
           e.preventDefault();
           var wasOpen = subWrap.classList.contains("mn-sub-open");
           overlay.querySelectorAll(".mn-sub-open").forEach(function (el) {
             el.classList.remove("mn-sub-open");
           });
-          if (!wasOpen) subWrap.classList.add("mn-sub-open");
+          overlay.querySelectorAll(".mn-active").forEach(function (el) {
+            el.classList.remove("mn-active");
+          });
+          if (!wasOpen) {
+            subWrap.classList.add("mn-sub-open");
+            a.classList.add("mn-active");
+          }
+          applyNavBarSpace();
         });
-        wrap.appendChild(a);
-        wrap.appendChild(subWrap);
-        overlay.appendChild(wrap);
       });
       document.body.appendChild(overlay);
 
       overlay.addEventListener("click", function (e) {
         if (e.target.tagName === "A") {
           document.body.classList.remove("mobile-nav-open");
-        }
-      });
-
-      // Tapping anywhere outside the bar closes any open flyout.
-      document.addEventListener("click", function (e) {
-        if (!overlay.contains(e.target)) {
-          overlay.querySelectorAll(".mn-sub-open").forEach(function (el) {
-            el.classList.remove("mn-sub-open");
-          });
         }
       });
     }
