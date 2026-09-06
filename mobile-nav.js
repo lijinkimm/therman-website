@@ -5,7 +5,7 @@
   }
 
   var NAV_LINKS = [
-    { href: "./brand.html", label: "THERMAN" },
+    { href: "./index.html", label: "THERMAN" },
     { href: "./dining.html", label: "DINING", sub: [
       { href: "./gamasote.html", label: "GAMASOTE" },
       { href: "./jang-paul-gourmet.html", label: "JANG PAUL GOURMET" },
