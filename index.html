@@ -73,6 +73,8 @@
     }
     [style*="font-size: 122px"] { font-size: 52px !important; }
     [style*="font-size: 60px"] { font-size: 34px !important; }
+    #hero-video-desktop { display: none !important; }
+    #hero-video-mobile { display: block !important; }
   }
 </style>
 </helmet>
@@ -98,8 +100,8 @@
 
   <section data-screen-label="00 Brand Video" style="padding: 126px 34px 0;">
     <div style="position: relative; width: 100%; height: calc(88vh - 172px); min-height: 480px; background: #0a0a0a; overflow: hidden;">
-      <video src="./media/therman-main-film.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"></video>
-      
+      <video id="hero-video-desktop" src="./media/therman-main-film.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"></video>
+      <video id="hero-video-mobile" src="./media/therman-main-film-mobile.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none;"></video>
     </div>
   </section>
 
