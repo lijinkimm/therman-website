@@ -112,29 +112,44 @@
       right: 0;
       z-index: 200;
       background: #fdfdfc;
-      padding: 6px 16px;
-      max-height: calc(100vh - 62px);
-      overflow-y: auto;
+      padding: 8px 16px;
       border-bottom: 1px solid #e2e0da;
       box-shadow: 0 8px 16px rgba(10, 10, 10, 0.06);
     }
-    #mobile-nav-overlay a {
+    #mobile-nav-overlay > a, #mobile-nav-overlay > span {
       display: block;
       font-family: 'Jost', sans-serif;
       font-weight: 300;
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       white-space: nowrap;
-      padding: 4px 8px;
+      padding: 6px 10px;
       border-left: 1px solid #e2e0da;
       color: #0a0a0a;
     }
-    #mobile-nav-overlay > a:first-child { border-left: none; padding-left: 0; }
-    #mobile-nav-overlay .mn-sub { display: contents; }
+    #mobile-nav-overlay > span > a { padding: 0; border-left: none; color: inherit; }
+    #mobile-nav-overlay > a:first-child, #mobile-nav-overlay > span:first-child { border-left: none; padding-left: 0; }
+    #mobile-nav-overlay .mn-sub {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: 8px;
+      flex-direction: column;
+      background: #0a0a0a;
+      padding: 6px 0;
+      z-index: 210;
+      min-width: max-content;
+    }
+    #mobile-nav-overlay .mn-sub.mn-sub-open { display: flex; }
     #mobile-nav-overlay .mn-sub a {
-      font-size: 9px;
-      color: #6b6b66;
+      font-size: 10.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fdfdfc;
+      padding: 9px 18px;
+      white-space: nowrap;
     }
     [style*="font-size: 122px"] { font-size: 52px !important; }
     [style*="font-size: 60px"] { font-size: 34px !important; }
