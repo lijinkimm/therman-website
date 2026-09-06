@@ -31,7 +31,7 @@
     if (!header || !toggle) return;
 
     var logo = document.createElement("a");
-    logo.href = "./brand.html";
+    logo.href = "./index.html";
     logo.id = "mobile-logo";
     logo.textContent = "THERMAN";
     header.insertBefore(logo, header.firstChild);
