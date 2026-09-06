@@ -83,10 +83,17 @@
 
       var grid = document.createElement("div");
       grid.className = "mn-grid";
-      NAV_LINKS.forEach(function (item) {
+      // Every sub-row lands in the same fixed grid row (right after the
+      // two rows of main items), regardless of which item is tapped —
+      // otherwise CSS grid auto-placement slots it in wherever the tapped
+      // item's own row happens to have room, which reads as "random".
+      var subRow = Math.ceil(NAV_LINKS.length / 2) + 1;
+      NAV_LINKS.forEach(function (item, i) {
         var a = document.createElement("a");
         a.href = item.href;
         a.textContent = item.label;
+        a.style.gridColumn = (i % 2) + 1;
+        a.style.gridRow = Math.floor(i / 2) + 1;
         grid.appendChild(a);
         if (!item.sub) return;
         // Items with sub-links reveal their subs as an extra row spanning
@@ -94,6 +101,7 @@
         // reads as the current section.
         var subWrap = document.createElement("div");
         subWrap.className = "mn-sub";
+        subWrap.style.gridRow = subRow;
         item.sub.forEach(function (s) {
           var sa = document.createElement("a");
           sa.href = s.href;
