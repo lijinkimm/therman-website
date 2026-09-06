@@ -126,21 +126,10 @@
           subWrap.classList.add("mn-sub-open");
           a.classList.add("mn-active");
         }
-        a.addEventListener("click", function (e) {
-          e.preventDefault();
-          var wasOpen = subWrap.classList.contains("mn-sub-open");
-          overlay.querySelectorAll(".mn-sub-open").forEach(function (el) {
-            el.classList.remove("mn-sub-open");
-          });
-          overlay.querySelectorAll(".mn-active").forEach(function (el) {
-            el.classList.remove("mn-active");
-          });
-          if (!wasOpen) {
-            subWrap.classList.add("mn-sub-open");
-            a.classList.add("mn-active");
-          }
-          applyNavBarSpace();
-        });
+        // No click-to-toggle here anymore — the sub-list already opens
+        // automatically based on the current page, so the main item just
+        // behaves like a normal link (tapping PRODUCT goes to product.html
+        // instead of only expanding its sub-menu in place).
       });
       overlay.appendChild(grid);
       overlay.appendChild(subContainer);
