@@ -167,5 +167,33 @@
         introObserver.disconnect();
       }, 15000);
     }
+
+    // Safari has not been honoring the CSS override for this box's ratio
+    // (neither aspect-ratio nor the height:0/padding-top fallback stuck),
+    // so pin the pixel height directly via JS instead — that can't be
+    // ignored by any engine's aspect-ratio handling quirks.
+    var wallBox = document.querySelector(
+      'section[data-screen-label="00b AMAC — Wall"] > div'
+    );
+    if (wallBox) {
+      var fixWallBoxHeight = function () {
+        if (window.matchMedia("(max-width: 768px)").matches) {
+          wallBox.style.height = wallBox.offsetWidth / 2 + "px";
+        } else {
+          wallBox.style.height = "";
+        }
+      };
+      fixWallBoxHeight();
+      window.addEventListener("resize", fixWallBoxHeight);
+      // the page runtime can re-render this subtree shortly after load
+      // and wipe the inline height we just set — keep reapplying for a
+      // short window, same guard pattern used for the header/video resets.
+      var wallFixTries = 0;
+      var wallFixInterval = setInterval(function () {
+        fixWallBoxHeight();
+        wallFixTries++;
+        if (wallFixTries > 20) clearInterval(wallFixInterval);
+      }, 500);
+    }
   });
 })();
