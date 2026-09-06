@@ -113,32 +113,38 @@
       padding-left: 0.3em;
     }
     body.mobile-nav-open #mobile-nav-overlay {
-      display: block;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
       position: fixed;
-      inset: 0;
+      top: 62px;
+      left: 0;
+      right: 0;
       z-index: 200;
       background: #fdfdfc;
-      padding: 96px 28px 48px;
+      padding: 10px 20px;
+      max-height: calc(100vh - 62px);
       overflow-y: auto;
+      border-bottom: 1px solid #e2e0da;
+      box-shadow: 0 8px 16px rgba(10, 10, 10, 0.06);
     }
     #mobile-nav-overlay a {
       display: block;
       font-family: 'Jost', sans-serif;
       font-weight: 300;
-      font-size: 18px;
-      letter-spacing: 0.2em;
+      font-size: 12.5px;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 15px 0;
-      border-bottom: 1px solid #e2e0da;
+      white-space: nowrap;
+      padding: 7px 12px;
+      border-left: 1px solid #e2e0da;
       color: #0a0a0a;
     }
-    #mobile-nav-overlay .mn-sub { display: flex; flex-direction: column; }
+    #mobile-nav-overlay > a:first-child { border-left: none; padding-left: 0; }
+    #mobile-nav-overlay .mn-sub { display: contents; }
     #mobile-nav-overlay .mn-sub a {
-      font-size: 13px;
-      letter-spacing: 0.12em;
+      font-size: 11px;
       color: #6b6b66;
-      padding: 10px 0 10px 16px;
-      border-bottom: none;
     }
     [style*="font-size: 122px"] { font-size: 52px !important; }
     [style*="font-size: 60px"] { font-size: 34px !important; }
