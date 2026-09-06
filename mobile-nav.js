@@ -65,5 +65,19 @@
         document.body.classList.remove("mobile-nav-open");
       }
     });
+
+    var desktopVideo = document.getElementById("hero-video-desktop");
+    var mobileVideo = document.getElementById("hero-video-mobile");
+    if (desktopVideo && mobileVideo) {
+      var isMobile = window.matchMedia("(max-width: 768px)").matches;
+      var active = isMobile ? mobileVideo : desktopVideo;
+      var inactive = isMobile ? desktopVideo : mobileVideo;
+      active.src = active.getAttribute("data-src");
+      active.autoplay = true;
+      active.load();
+      active.play().catch(function () {});
+      inactive.removeAttribute("src");
+      inactive.load();
+    }
   });
 })();
