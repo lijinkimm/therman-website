@@ -72,7 +72,7 @@
       var brand = document.createElement("a");
       brand.href = "./brand.html";
       brand.className = "mn-brand";
-      brand.textContent = "THERMAN";
+      brand.innerHTML = "THERMAN<span class=\"mn-brand-tm\">TM</span>";
       var code = document.createElement("a");
       code.href = "./index.html";
       code.className = "mn-code";
