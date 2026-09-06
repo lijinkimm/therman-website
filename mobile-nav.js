@@ -25,50 +25,68 @@
     ] }
   ];
 
-  ready(function () {
-    var header = document.getElementById("site-header");
-    var toggle = document.getElementById("menu-toggle");
-    if (!header || !toggle) return;
-
+  function ensureLogo(header) {
+    if (header.querySelector("#mobile-logo")) return;
     var logo = document.createElement("a");
     logo.href = "./index.html";
     logo.id = "mobile-logo";
     logo.textContent = "THERMAN";
     header.insertBefore(logo, header.firstChild);
+  }
 
-    var overlay = document.createElement("div");
-    overlay.id = "mobile-nav-overlay";
-    NAV_LINKS.forEach(function (item) {
-      var a = document.createElement("a");
-      a.href = item.href;
-      a.textContent = item.label;
-      overlay.appendChild(a);
-      if (item.sub) {
-        var subWrap = document.createElement("div");
-        subWrap.className = "mn-sub";
-        item.sub.forEach(function (s) {
-          var sa = document.createElement("a");
-          sa.href = s.href;
-          sa.textContent = s.label;
-          subWrap.appendChild(sa);
-        });
-        overlay.appendChild(subWrap);
-      }
-    });
-    document.body.appendChild(overlay);
+  ready(function () {
+    var header = document.getElementById("site-header");
+    var toggle = document.getElementById("menu-toggle");
+    if (!header || !toggle) return;
 
-    toggle.addEventListener("click", function () {
-      document.body.classList.toggle("mobile-nav-open");
-    });
-    overlay.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") {
-        document.body.classList.remove("mobile-nav-open");
-      }
-    });
+    ensureLogo(header);
+    // the page's own runtime re-renders the header subtree after our first
+    // pass, wiping any DOM node it didn't create itself (like our logo) —
+    // watch for that and put it back.
+    new MutationObserver(function () {
+      ensureLogo(header);
+    }).observe(header, { childList: true });
+
+    if (!document.getElementById("mobile-nav-overlay")) {
+      var overlay = document.createElement("div");
+      overlay.id = "mobile-nav-overlay";
+      NAV_LINKS.forEach(function (item) {
+        var a = document.createElement("a");
+        a.href = item.href;
+        a.textContent = item.label;
+        overlay.appendChild(a);
+        if (item.sub) {
+          var subWrap = document.createElement("div");
+          subWrap.className = "mn-sub";
+          item.sub.forEach(function (s) {
+            var sa = document.createElement("a");
+            sa.href = s.href;
+            sa.textContent = s.label;
+            subWrap.appendChild(sa);
+          });
+          overlay.appendChild(subWrap);
+        }
+      });
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener("click", function (e) {
+        if (e.target.tagName === "A") {
+          document.body.classList.remove("mobile-nav-open");
+        }
+      });
+    }
+
+    if (!toggle.dataset.navBound) {
+      toggle.dataset.navBound = "1";
+      toggle.addEventListener("click", function () {
+        document.body.classList.toggle("mobile-nav-open");
+      });
+    }
 
     var desktopVideo = document.getElementById("hero-video-desktop");
     var mobileVideo = document.getElementById("hero-video-mobile");
-    if (desktopVideo && mobileVideo) {
+    if (desktopVideo && mobileVideo && !desktopVideo.dataset.heroBound) {
+      desktopVideo.dataset.heroBound = "1";
       var isMobile = window.matchMedia("(max-width: 768px)").matches;
       var active = isMobile ? mobileVideo : desktopVideo;
       var inactive = isMobile ? desktopVideo : mobileVideo;
