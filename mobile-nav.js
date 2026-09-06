@@ -89,17 +89,34 @@
 
     var desktopVideo = document.getElementById("hero-video-desktop");
     var mobileVideo = document.getElementById("hero-video-mobile");
-    if (desktopVideo && mobileVideo && !desktopVideo.dataset.heroBound) {
-      desktopVideo.dataset.heroBound = "1";
+    if (desktopVideo && mobileVideo) {
       var isMobile = window.matchMedia("(max-width: 768px)").matches;
       var active = isMobile ? mobileVideo : desktopVideo;
       var inactive = isMobile ? desktopVideo : mobileVideo;
-      active.src = active.getAttribute("data-src");
-      active.autoplay = true;
-      active.load();
-      active.play().catch(function () {});
-      inactive.removeAttribute("src");
-      inactive.load();
+
+      var applyHeroVideo = function () {
+        if (!active.getAttribute("src")) {
+          active.src = active.getAttribute("data-src");
+          active.autoplay = true;
+          active.load();
+          active.play().catch(function () {});
+        }
+        if (inactive.getAttribute("src")) {
+          inactive.removeAttribute("src");
+          inactive.load();
+        }
+      };
+
+      applyHeroVideo();
+      // same runtime re-render that resets the header also resets these
+      // video elements back to their template state (no src) — reapply
+      // whenever that happens.
+      new MutationObserver(applyHeroVideo).observe(active.parentElement, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ["src"]
+      });
     }
   });
 })();
