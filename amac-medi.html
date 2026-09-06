@@ -60,6 +60,9 @@
       flex-direction: column !important;
       margin-bottom: 40px !important;
     }
+    section:has(> div[style*="grid-template-columns: minmax(0px, 58%)"]):not([data-screen-label^="01 "]) {
+      padding-top: 24px !important;
+    }
     section:has(> div[style*="grid-template-columns: minmax(0px, 58%)"]) > div[style*="grid-template-columns: minmax(0px, 58%)"] {
       order: 1 !important;
       margin-top: 28px !important;
