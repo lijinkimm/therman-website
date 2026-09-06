@@ -92,6 +92,7 @@
       // same spot at the bottom, regardless of which item was tapped.
       var subContainer = document.createElement("div");
       subContainer.className = "mn-sub-container";
+      var currentPage = location.pathname.split("/").pop() || "index.html";
       NAV_LINKS.forEach(function (item, i) {
         var a = document.createElement("a");
         a.href = item.href;
@@ -110,6 +111,17 @@
           subWrap.appendChild(sa);
         });
         subContainer.appendChild(subWrap);
+        // Keep this item's sub-list open by default whenever the current
+        // page belongs to it (its own page or one of its sub-pages), so
+        // browsing within a section (e.g. into GAMASOTE from DINING)
+        // doesn't collapse the menu back to the default state.
+        var isCurrentSection =
+          item.href.indexOf(currentPage) !== -1 ||
+          item.sub.some(function (s) { return s.href.indexOf(currentPage) !== -1; });
+        if (isCurrentSection) {
+          subWrap.classList.add("mn-sub-open");
+          a.classList.add("mn-active");
+        }
         a.addEventListener("click", function (e) {
           e.preventDefault();
           var wasOpen = subWrap.classList.contains("mn-sub-open");
