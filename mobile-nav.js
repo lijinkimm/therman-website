@@ -6,22 +6,22 @@
 
   var NAV_LINKS = [
     { href: "./brand.html", label: "THERMAN" },
+    { href: "./stay.html", label: "WELLNESS & STAY" },
     { href: "./dining.html", label: "DINING", sub: [
       { href: "./gamasote.html", label: "GAMASOTE" },
       { href: "./jang-paul-gourmet.html", label: "JANG PAUL GOURMET" },
       { href: "./nurun-bowl.html", label: "NURUN BOWL" },
       { href: "./poksam-bbq.html", label: "POKSAM BBQ" }
     ] },
-    { href: "./stay.html", label: "WELLNESS & STAY" },
-    { href: "./product.html", label: "PRODUCT", sub: [
-      { href: "./fabric.html", label: "TEXTILES" },
-      { href: "./furniture.html", label: "FURNITURE" },
-      { href: "./oocoffee.html", label: "O O C O F F E E" }
-    ] },
     { href: "./wellness.html", label: "AMAC WELLNESS & BEAUTY", sub: [
       { href: "./amac-spa.html", label: "AMAC SPA" },
       { href: "./amac-cosmetic.html", label: "AMAC COSMETICS" },
       { href: "./amac-medi.html", label: "AMAC MEDI" }
+    ] },
+    { href: "./product.html", label: "PRODUCT", sub: [
+      { href: "./fabric.html", label: "TEXTILES" },
+      { href: "./furniture.html", label: "FURNITURE" },
+      { href: "./oocoffee.html", label: "O O C O F F E E" }
     ] }
   ];
 
