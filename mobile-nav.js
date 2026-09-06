@@ -136,9 +136,19 @@
           if (div.parentElement.tagName === "SECTION") return; // handled by CSS already
           var prev = div.previousElementSibling;
           var next = div.nextElementSibling;
-          if (prev && prev.tagName === "SECTION" && !prev.style.gridTemplateColumns) return; // already moved
+          if (prev && prev.tagName === "SECTION" && !prev.style.gridTemplateColumns) {
+            // already moved — but the runtime's periodic re-render can
+            // restore this div's original inline padding, so keep the trim.
+            if (div.style.paddingTop !== "24px") div.style.paddingTop = "24px";
+            return;
+          }
           if (next && next.tagName === "SECTION" && !next.style.gridTemplateColumns) {
             next.parentNode.insertBefore(next, div);
+            // the div's own top padding was sized to clear the fixed header
+            // when it was the first element on the page — now that the
+            // media section leads instead, that padding just leaves a
+            // large gap above the title, so trim it to a normal gap.
+            div.style.paddingTop = "24px";
             moved = true;
           }
         });
