@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&amp;family=Jost:wght@100..900&amp;display=swap" rel="stylesheet">
 <script src="./image-slot.js"></script>
+<script src="./mobile-nav.js"></script>
 <style>
   * { box-sizing: border-box; }
   html { scroll-padding-top: 148px; scroll-behavior: smooth; }
@@ -28,12 +29,62 @@
   .nav-dining.nav-active .nav-sub { display: inline-flex !important; position: absolute !important; left: 100%; top: 0; margin-left: 16px; padding: 0 !important; background: none !important; gap: 20px !important; }
 @media (max-width: 1300px) { .nav-dining.nav-active .nav-sub { display: none !important; } .nav-dining.nav-active:hover .nav-sub, .nav-dining.nav-active:focus-within .nav-sub { display: inline-flex !important; position: absolute !important; background: #fdfdfc !important; } }
   ::selection { background: #0a0a0a; color: #fdfdfc; }
+  #mobile-logo { display: none; }
+  #mobile-nav-overlay { display: none; }
+  @media (max-width: 768px) {
+    html, body { overflow-x: hidden; }
+    *:not(header)[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+    header[style*="grid-template-columns"] {
+      grid-template-columns: 1fr auto !important;
+      padding: 20px 20px 16px !important;
+      gap: 10px !important;
+      align-items: center !important;
+      z-index: 300 !important;
+    }
+    header nav, header p, header > div[style*="text-align: right"] { display: none !important; }
+    #mobile-logo {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      letter-spacing: 0.3em;
+      padding-left: 0.3em;
+    }
+    body.mobile-nav-open #mobile-nav-overlay {
+      display: block;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: #fdfdfc;
+      padding: 96px 28px 48px;
+      overflow-y: auto;
+    }
+    #mobile-nav-overlay a {
+      display: block;
+      font-size: 17px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 15px 0;
+      border-bottom: 1px solid #e2e0da;
+      color: #0a0a0a;
+    }
+    #mobile-nav-overlay .mn-sub { display: flex; flex-direction: column; }
+    #mobile-nav-overlay .mn-sub a {
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: #6b6b66;
+      padding: 10px 0 10px 16px;
+      border-bottom: none;
+    }
+    [style*="font-size: 122px"] { font-size: 52px !important; }
+    [style*="font-size: 60px"] { font-size: 34px !important; }
+  }
 </style>
 </helmet>
 
 <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #fdfdfc; color: #0a0a0a; min-height: 100vh;">
 
-  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #fdfdfc; display: grid; grid-template-columns: max-content minmax(max-content, 1fr) minmax(0, 300px) auto; gap: 20px; align-items: start; padding: 26px 34px 22px;">
+  <header id="site-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #fdfdfc; display: grid; grid-template-columns: max-content minmax(max-content, 1fr) minmax(0, 300px) auto; gap: 20px; align-items: start; padding: 26px 34px 22px;">
     <nav style="display: grid; grid-template-columns: max-content max-content; column-gap: 34px; row-gap: 7px; font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase;">
       <a href="./brand.html">THERMAN</a>
       <span class="nav-dining nav-active" style="position: relative; display: inline-block; justify-self: start;"><a href="./dining.html">DINING</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./gamasote.html">GAMASOTE</a><a href="./jang-paul-gourmet.html">JANG PAUL GOURMET</a><a href="./nurun-bowl.html">NURUN BOWL</a><a href="./poksam-bbq.html">POKSAM BBQ</a></span></span>
@@ -44,7 +95,7 @@
     </nav>
     <div style="font-family: 'Oswald', sans-serif; font-weight: 300; font-size: clamp(30px, 3.2vw, 58px); line-height: 0.82; letter-spacing: -0.01em; text-align: right; padding-right: 4px;"><a href="./index.html">53F4_2H</a></div>
     <p style="margin: 0; font-size: 12.5px; line-height: 1.5; min-width: 0;">Nestled in Japan's pristine nature, Therman Wellness Resort delivers an unparalleled high-end retreat focused on mind-body rejuvenation, bespoke healing therapies, and refined Japanese hospitality.</p>
-    <button style="justify-self: end; margin-top: 6px; display: flex; flex-direction: column; gap: 6px; width: 38px; padding: 0; border: 0; background: none; cursor: pointer;">
+    <button id="menu-toggle" style="justify-self: end; margin-top: 6px; display: flex; flex-direction: column; gap: 6px; width: 38px; padding: 0; border: 0; background: none; cursor: pointer;">
       <span style="display: block; height: 5px; background: #0a0a0a;"></span>
       <span style="display: block; height: 5px; background: #0a0a0a;"></span>
     </button>
