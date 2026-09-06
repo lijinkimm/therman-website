@@ -104,6 +104,10 @@
         // current section.
         var subWrap = document.createElement("div");
         subWrap.className = "mn-sub";
+        // Lists with fewer items (3 or less) have room for a much wider
+        // gap; DINING's 4-item list needs the tighter default to still
+        // fit on one line.
+        if (item.sub.length <= 3) subWrap.style.columnGap = "34px";
         item.sub.forEach(function (s) {
           var sa = document.createElement("a");
           sa.href = s.href;
