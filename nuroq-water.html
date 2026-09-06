@@ -85,7 +85,7 @@
       order: -1 !important;
     }
     header[style*="grid-template-columns"] { display: none !important; }
-    header + section, header + div { padding-top: 0 !important; }
+    header[id] + section, header[id] + div { padding-top: 0 !important; }
     #menu-toggle {
       display: flex !important;
       width: 38px !important;
@@ -107,14 +107,14 @@
       right: 0;
       z-index: 300;
       background: #fdfdfc;
-      padding: 14px 64px 14px 16px;
+      padding: 14px 64px 14px 10px;
       border-bottom: 1px solid #e2e0da;
       box-shadow: 0 8px 16px rgba(10, 10, 10, 0.06);
     }
     #mobile-nav-overlay .mn-top-row {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
+      align-items: center;
       margin-bottom: 10px;
     }
     #mobile-nav-overlay .mn-brand {
@@ -160,8 +160,7 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 6px 18px;
-      margin: 0 -64px 0 -16px;
-      padding: 8px 16px;
+      padding: 8px 10px;
       background: #0a0a0a;
     }
     #mobile-nav-overlay .mn-sub.mn-sub-open { display: flex; }
@@ -181,33 +180,33 @@
     footer[style*="border-top: 1px solid"] { border-top: none !important; }
     [style*="letter-spacing: 0.4em; padding-left: 0.4em"], [style*="letter-spacing: 0.34em; padding-left: 0.34em"] { padding-left: 0 !important; }
     footer [style*="border-top: 1px solid"] { border-top: none !important; }
-    [style*="padding: 0px 34px 24px;"] { padding: 0 12px 24px !important; }
-    [style*="padding: 0px 34px 40px;"] { padding: 0 12px 40px !important; }
-    [style*="padding: 0px 34px 72px;"] { padding: 0 12px 72px !important; }
-    [style*="padding: 0px 34px;"] { padding: 0 12px !important; }
-    [style*="padding: 126px 34px 0px;"] { padding: 126px 12px 0 !important; }
-    [style*="padding: 128px 34px 72px;"] { padding: 128px 12px 72px !important; }
-    [style*="padding: 132px 34px 0px;"] { padding: 132px 12px 0 !important; }
-    [style*="padding: 148px 34px 0px;"] { padding: 148px 12px 0 !important; }
-    [style*="padding: 148px 34px 40px;"] { padding: 148px 12px 40px !important; }
-    [style*="padding: 152px 34px 0px;"] { padding: 152px 12px 0 !important; }
-    [style*="padding: 152px 34px 24px;"] { padding: 152px 12px 24px !important; }
-    [style*="padding: 156px 34px 24px;"] { padding: 156px 12px 24px !important; }
-    [style*="padding: 24px 34px 0px;"] { padding: 24px 12px 0 !important; }
-    [style*="padding: 24px 34px 100px;"] { padding: 24px 12px 100px !important; }
-    [style*="padding: 24px 34px 24px;"] { padding: 24px 12px 24px !important; }
-    [style*="padding: 24px 34px;"] { padding: 24px 12px !important; }
-    [style*="padding: 26px 34px 22px;"] { padding: 26px 12px 22px !important; }
-    [style*="padding: 44px 34px 72px;"] { padding: 44px 12px 72px !important; }
-    [style*="padding: 48px 34px 20px;"] { padding: 48px 12px 12px !important; }
-    [style*="padding: 52px 34px 18px;"] { padding: 52px 12px 24px !important; }
-    [style*="padding: 60px 34px 0px;"] { padding: 60px 12px 0 !important; }
-    [style*="padding: 72px 34px 0px;"] { padding: 72px 12px 0 !important; }
-    [style*="padding: 72px 34px 72px;"] { padding: 72px 12px 72px !important; }
-    [style*="padding: 72px 34px;"] { padding: 72px 12px !important; }
-    [style*="padding: 76px 34px 40px;"] { padding: 76px 12px 40px !important; }
-    [style*="padding: 92px 34px 0px;"] { padding: 92px 12px 0 !important; }
-    [style*="padding: 92px 34px 24px;"] { padding: 92px 12px 24px !important; }
+    [style*="padding: 0px 34px 24px;"] { padding: 0 8px 24px !important; }
+    [style*="padding: 0px 34px 40px;"] { padding: 0 8px 40px !important; }
+    [style*="padding: 0px 34px 72px;"] { padding: 0 8px 72px !important; }
+    [style*="padding: 0px 34px;"] { padding: 0 8px !important; }
+    [style*="padding: 126px 34px 0px;"] { padding: 126px 8px 0 !important; }
+    [style*="padding: 128px 34px 72px;"] { padding: 128px 8px 72px !important; }
+    [style*="padding: 132px 34px 0px;"] { padding: 132px 8px 0 !important; }
+    [style*="padding: 148px 34px 0px;"] { padding: 148px 8px 0 !important; }
+    [style*="padding: 148px 34px 40px;"] { padding: 148px 8px 40px !important; }
+    [style*="padding: 152px 34px 0px;"] { padding: 152px 8px 0 !important; }
+    [style*="padding: 152px 34px 24px;"] { padding: 152px 8px 24px !important; }
+    [style*="padding: 156px 34px 24px;"] { padding: 156px 8px 24px !important; }
+    [style*="padding: 24px 34px 0px;"] { padding: 24px 8px 0 !important; }
+    [style*="padding: 24px 34px 100px;"] { padding: 24px 8px 100px !important; }
+    [style*="padding: 24px 34px 24px;"] { padding: 24px 8px 24px !important; }
+    [style*="padding: 24px 34px;"] { padding: 24px 8px !important; }
+    [style*="padding: 26px 34px 22px;"] { padding: 26px 8px 22px !important; }
+    [style*="padding: 44px 34px 72px;"] { padding: 44px 8px 72px !important; }
+    [style*="padding: 48px 34px 20px;"] { padding: 48px 8px 8px !important; }
+    [style*="padding: 52px 34px 18px;"] { padding: 52px 8px 24px !important; }
+    [style*="padding: 60px 34px 0px;"] { padding: 60px 8px 0 !important; }
+    [style*="padding: 72px 34px 0px;"] { padding: 72px 8px 0 !important; }
+    [style*="padding: 72px 34px 72px;"] { padding: 72px 8px 72px !important; }
+    [style*="padding: 72px 34px;"] { padding: 72px 8px !important; }
+    [style*="padding: 76px 34px 40px;"] { padding: 76px 8px 40px !important; }
+    [style*="padding: 92px 34px 0px;"] { padding: 92px 8px 0 !important; }
+    [style*="padding: 92px 34px 24px;"] { padding: 92px 8px 24px !important; }
   }
 </style>
 </helmet>
