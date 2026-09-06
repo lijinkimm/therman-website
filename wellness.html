@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&amp;family=Jost:wght@100..900&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: 148px; scroll-behavior: smooth; }
+  body { margin: 0; background: #fdfdfc; color: #0a0a0a; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #6b6b66; }
+  .venue-link img { transition: opacity .35s ease; }
+  .venue-card { cursor: pointer; }
+  .venue-card h3, .venue-card p { transition: color .3s ease; }
+  .venue-card:hover h3, .venue-card:hover p { color: #6b6b66; }
+  .venue-card:hover .venue-link img { opacity: 0.55; }
+  .venue-link:hover img { opacity: 0.55; }
+  .nav-dining.nav-active:hover .nav-sub, .nav-dining.nav-active:focus-within .nav-sub { display: flex !important; }
+  .nav-sub > a { background: #0a0a0a; color: #fdfdfc; padding: 0 6px; line-height: 1.15; transition: background .25s ease; }
+  .nav-sub > a:hover { background: #4a4a4a; }
+  .nav-dining.nav-active { display: inline-flex !important; align-items: baseline; gap: 16px; white-space: nowrap; font-size: 11.5px; }
+  .nav-dining.nav-active > a { white-space: nowrap; }
+  .nav-dining.nav-active { position: relative; }
+  .nav-dining.nav-active .nav-sub { display: inline-flex !important; position: absolute !important; left: 100%; top: 0; margin-left: 16px; padding: 0 !important; background: none !important; gap: 20px !important; }
+@media (max-width: 1300px) { .nav-dining.nav-active .nav-sub { display: none !important; } .nav-dining.nav-active:hover .nav-sub, .nav-dining.nav-active:focus-within .nav-sub { display: inline-flex !important; position: absolute !important; background: #fdfdfc !important; } }
+  ::selection { background: #0a0a0a; color: #fdfdfc; }
+</style>
+</helmet>
+
+<div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #fdfdfc; color: #0a0a0a; min-height: 100vh;">
+
+  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #fdfdfc; display: grid; grid-template-columns: max-content minmax(max-content, 1fr) minmax(0, 300px) auto; gap: 20px; align-items: start; padding: 26px 34px 22px;">
+    <nav style="display: grid; grid-template-columns: max-content max-content; column-gap: 34px; row-gap: 7px; font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase;">
+      <a href="./brand.html">THERMAN</a>
+      <span class="nav-dining" style="position: relative; display: inline-block; justify-self: start;"><a href="./dining.html">DINING</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./gamasote.html">GAMASOTE</a><a href="./jang-paul-gourmet.html">JANG PAUL GOURMET</a><a href="./nurun-bowl.html">NURUN BOWL</a><a href="./poksam-bbq.html">POKSAM BBQ</a></span></span>
+      <a href="./stay.html" style="white-space: nowrap;">WELLNESS &amp; STAY</a>
+      <span class="nav-dining" style="position: relative; display: inline-block; justify-self: start;"><a href="./product.html">PRODUCT</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./fabric.html">TEXTILES</a><a href="./furniture.html">FURNITURE</a><a href="./oocoffee.html">O O C O F F E E</a></span></span>
+      <span class="nav-dining nav-active" style="position: relative; display: inline-block; justify-self: start;"><a href="./wellness.html">AMAC WELLNESS &amp; BEAUTY</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./amac-spa.html">AMAC SPA</a><a href="./amac-cosmetic.html">AMAC COSMETICS</a><a href="./amac-medi.html">AMAC MEDI</a></span></span>
+      <span></span>
+    </nav>
+    <div style="font-family: 'Oswald', sans-serif; font-weight: 300; font-size: clamp(30px, 3.2vw, 58px); line-height: 0.82; letter-spacing: -0.01em; text-align: right; padding-right: 4px;"><a href="./index.html">53F4_2H</a></div>
+    <p style="margin: 0; font-size: 10px; line-height: 1.5; min-width: 0">Nestled in Japan's pristine nature, Therman Wellness Resort delivers an unparalleled high-end retreat focused on mind-body rejuvenation, bespoke healing therapies, and refined Japanese hospitality.</p>
+    <button style="justify-self: end; margin-top: 6px; display: flex; flex-direction: column; gap: 6px; width: 38px; padding: 0; border: 0; background: none; cursor: pointer;">
+      <span style="display: block; height: 5px; background: #0a0a0a;"></span>
+      <span style="display: block; height: 5px; background: #0a0a0a;"></span>
+    </button>
+  </header>
+  <section data-screen-label="01 Wellness — Opening" style="padding: 148px 34px 0;">
+    <div style="display: grid; grid-template-columns: minmax(0, auto) minmax(0, 1fr) minmax(0, auto); gap: 40px; align-items: start; padding: 0 0 12px;">
+      <div style="font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 60px; line-height: 0.9; letter-spacing: -0.005em; white-space: nowrap;">AMAC WELLNESS</div>
+      <p style="margin: 0; justify-self: center; max-width: 380px; font-size: 12.5px; line-height: 1.5;">Personalised treatments, neurocosmetic care,<br>inner beauty and restorative technologies come together<br>as one integrated approach to wellbeing.</p>
+      <div style="font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 60px; line-height: 0.9; letter-spacing: -0.005em; white-space: nowrap; text-align: right;">SKIN, BODY &amp; MIND</div>
+    </div>
+    <div style="position: relative; width: 100%; height: calc(88vh - 172px); min-height: 480px; background: #eceae5; overflow: hidden;">
+      <video src="./media/wellness-hero.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+    </div>
+  </section>
+
+  <div id="experiences" style="padding: 92px 34px 24px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 34px; align-items: end;">
+    <h2 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.95; min-width: 0; white-space: nowrap; text-transform: uppercase">Neurocosmetic Care</h2>
+    
+  </div>
+  <section data-screen-label="03 Wellness — Experiences" style="padding: 24px 34px 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px;">
+    <div class="venue-card" style="display: flex; flex-direction: column; height: 100%;">
+      <a class="venue-link" href="./amac-spa.html" style="position: relative; width: 100%; aspect-ratio: 3 / 4.2; background: #eceae5; display: block;">
+        <img src="./media/wellness-spa-amac.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+      </a>
+      <h3 style="margin: 16px 0 6px; font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 24px; letter-spacing: 0.06em;">AMAC SPA</h3>
+      <p style="margin: 0; font-size: 12.5px; line-height: 1.6; color: #3a3a36;">Thermal bathing and hands-on care, drawn from the water on site.</p>
+      <a href="./amac-spa.html" style="align-self: start; margin-top: auto; padding-top: 22px; font-size: 10px; letter-spacing: 0.08em; color: #0a0a0a; text-decoration: none; border-bottom: 1px solid #0a0a0a; padding-bottom: 7px" style-hover="border-bottom-color: #9a978f; color: #3a3a36;">View AMAC SPA</a>
+    </div>
+    <div class="venue-card" style="display: flex; flex-direction: column; height: 100%;">
+      <a class="venue-link" href="./amac-cosmetic.html" style="position: relative; width: 100%; aspect-ratio: 3 / 4.2; background: #eceae5; display: block;">
+        <img src="./media/wellness-cosmetic-card.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+      </a>
+      <h3 style="margin: 16px 0 6px; font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 24px; letter-spacing: 0.06em;">AMAC COSMETIC</h3>
+      <p style="margin: 0; font-size: 12.5px; line-height: 1.6; color: #3a3a36;">Morning and evening practice, indoors or on the lawn.</p>
+      <a href="./amac-cosmetic.html" style="align-self: start; margin-top: auto; padding-top: 22px; font-size: 10px; letter-spacing: 0.08em; color: #0a0a0a; text-decoration: none; border-bottom: 1px solid #0a0a0a; padding-bottom: 7px" style-hover="border-bottom-color: #9a978f; color: #3a3a36;">View AMAC COSMETIC</a>
+    </div>
+    <div class="venue-card" style="display: flex; flex-direction: column; height: 100%;">
+      <a class="venue-link" href="./amac-medi.html" style="position: relative; width: 100%; aspect-ratio: 3 / 4.2; background: #eceae5; display: block;">
+        <img src="./media/wellness-medi.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+      </a>
+      <h3 style="margin: 16px 0 6px; font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 24px; letter-spacing: 0.06em;">AMAC MEDI</h3>
+      <p style="margin: 0; font-size: 12.5px; line-height: 1.6; color: #3a3a36;">Eighteen holes following the contour of the valley.</p>
+      <a href="./amac-medi.html" style="align-self: start; margin-top: auto; padding-top: 22px; font-size: 10px; letter-spacing: 0.08em; color: #0a0a0a; text-decoration: none; border-bottom: 1px solid #0a0a0a; padding-bottom: 7px" style-hover="border-bottom-color: #9a978f; color: #3a3a36;">View AMAC MEDI</a>
+    </div>
+  </section>
+  <section data-screen-label="05 AMAC — Care, Connected" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px; margin-top: 92px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/amac-care-connected.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">Care, Connected</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">AMAC considers beauty in relation to the whole person. Skin, <br>physical condition, hydration, recovery and mental clarity are never treated as separate concerns.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Personalised spa treatments, neurocosmetics, functional hydration and advanced recovery technologies come together as one connected approach to wellbeing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="06 AMAC — Research Behind Every Ritual" style="padding: 60px 34px 0;">
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 34px;">
+      <h3 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">Built on Science</h3>
+      <div style="max-width: 520px;">
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Science provides the foundation, but individual condition determines the experience. AMAC brings research-led formulas and restorative techniques into rituals shaped around real daily needs.</p>
+        
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/amac-research.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="07 AMAC — A Cue to Focus" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px; margin-top: 60px;">
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/amac-neurocue.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">A Cue to Focus</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">NEUROCUE turns hydration into a simple focus ritual. One stick mixes with water, bringing together measured caffeine, L-theanine and low-sugar electrolytes.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">A clear and uncomplicated way to pause, hydrate and prepare the mind for what comes next.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="08 AMAC — Wherever the Day Leads" style="padding: 60px 34px 0;">
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 34px;">
+      <h3 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">Wherever the Day Leads</h3>
+      <div style="max-width: 520px;">
+        
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">From morning work to afternoon fatigue and active moments outdoors, <br>NEUROCUE creates a portable cue to return to a clearer rhythm.</p>
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/amac-day-leads.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="09 AMAC — Recovery, Under Pressure" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px; margin-top: 60px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/amac-oxygen.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">Recovery, Under Pressure</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">Within the oxygen chamber, elevated pressure and complete stillness <br>create a controlled environment for deeper rest.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Integrated into a personalised recovery programme, each session gives the body space to <br>slow down and the mind an interval away from constant stimulation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="10 AMAC — Care Shaped Around You" style="padding: 60px 34px 0;">
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 34px;">
+      <h3 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">Care Shaped Around You</h3>
+      <div style="max-width: 520px;">
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Every AMAC SPA journey begins with the present condition of your skin and body. Products, <br>pressure and treatment sequence are carefully adjusted by expert hands.</p>
+        
+        
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/amac-spa-care.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="11 AMAC — The Ritual Continues" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px; margin-top: 60px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/amac-cosmetic-ritual.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">The Ritual Continues</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">AMAC Neuro Cosmetics are inspired by the connection between skin, <br>stress and sensory experience. Advanced formulas support hydration, <br>resilience and visible vitality through textures created to feel intuitive on the skin.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">The care experienced at AMAC continues at home as a quiet, <br>consistent part of everyday life.</p>
+      </div>
+      
+    </div>
+  </section>
+
+  <footer style="padding: 0 34px 40px;">
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 34px; border-top: 1px solid #d8d5ce; padding-top: 34px; font-size: 12px; line-height: 1.9;">
+      <div>
+        <div style="font-family: 'Jost', sans-serif; font-weight: 200; font-size: 22px; letter-spacing: 0.4em; padding-left: 0.4em;">THERMAN</div>
+        <div style="font-size: 11px; letter-spacing: 0.34em; padding-left: 0.34em; margin-top: 6px; color: #6b6b66;">WELLNESS</div>
+      </div>
+      <div style="color: #3a3a36;">
+        <a href="./brand.html#philosophy">Our Philosophy</a><br>
+        <a href="./brand.html#setting">The Setting</a><br>
+        <a href="./brand.html#architecture">Architecture &amp; Spaces</a>
+      </div>
+      <div style="color: #3a3a36;">
+        <a href="./stay.html">Rooms &amp; Reservation</a><br>
+        <a href="./wellness.html">Wellness Programmes</a><br>
+        <a href="./dining.html">Dining &amp; Hours</a>
+      </div>
+      <div style="color: #3a3a36;">
+        Reservations<br>
+        reservations@therman.jp<br>
+        Japan — 53F4_2H
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; padding-top: 26px; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #9a978f;">
+      <span>© 2026 THERMAN WELLNESS RESORT</span>
+      <span>ALL RIGHTS RESERVED</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

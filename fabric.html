@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&amp;family=Jost:wght@100..900&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: 148px; scroll-behavior: smooth; }
+  body { margin: 0; background: #fdfdfc; color: #0a0a0a; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #6b6b66; }
+  .nav-dining.nav-active:hover .nav-sub, .nav-dining.nav-active:focus-within .nav-sub { display: flex !important; }
+  .nav-sub > a { background: #0a0a0a; color: #fdfdfc; padding: 0 6px; line-height: 1.15; transition: background .25s ease; }
+  .nav-sub > a:hover { background: #4a4a4a; }
+  .nav-dining.nav-active { display: inline-flex !important; align-items: baseline; gap: 16px; white-space: nowrap; font-size: 11.5px; }
+  .nav-dining.nav-active > a { white-space: nowrap; }
+  .nav-dining.nav-active { position: relative; }
+  .nav-dining.nav-active .nav-sub { display: inline-flex !important; position: absolute !important; left: 100%; top: 0; margin-left: 16px; padding: 0 !important; background: none !important; gap: 20px !important; }
+@media (max-width: 1300px) { .nav-dining.nav-active .nav-sub { display: none !important; } .nav-dining.nav-active:hover .nav-sub, .nav-dining.nav-active:focus-within .nav-sub { display: inline-flex !important; position: absolute !important; background: #fdfdfc !important; } }
+  ::selection { background: #0a0a0a; color: #fdfdfc; }
+</style>
+</helmet>
+
+<div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #fdfdfc; color: #0a0a0a; min-height: 100vh;">
+
+  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #fdfdfc; display: grid; grid-template-columns: max-content minmax(max-content, 1fr) minmax(0, 300px) auto; gap: 20px; align-items: start; padding: 26px 34px 22px;">
+    <nav style="display: grid; grid-template-columns: max-content max-content; column-gap: 34px; row-gap: 7px; font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase;">
+      <a href="./brand.html">THERMAN</a>
+      <span class="nav-dining" style="position: relative; display: inline-block; justify-self: start;"><a href="./dining.html">DINING</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./gamasote.html">GAMASOTE</a><a href="./jang-paul-gourmet.html">JANG PAUL GOURMET</a><a href="./nurun-bowl.html">NURUN BOWL</a><a href="./poksam-bbq.html">POKSAM BBQ</a></span></span>
+      <a href="./stay.html" style="white-space: nowrap;">WELLNESS &amp; STAY</a>
+      <span class="nav-dining nav-active" style="position: relative; display: inline-block; justify-self: start;"><a href="./product.html">PRODUCT</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./fabric.html">TEXTILES</a><a href="./furniture.html">FURNITURE</a><a href="./oocoffee.html">O O C O F F E E</a></span></span>
+      <span class="nav-dining" style="position: relative; display: inline-block; justify-self: start;"><a href="./wellness.html">AMAC WELLNESS &amp; BEAUTY</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./amac-spa.html">AMAC SPA</a><a href="./amac-cosmetic.html">AMAC COSMETICS</a><a href="./amac-medi.html">AMAC MEDI</a></span></span>
+      <span></span>
+    </nav>
+    <div style="font-family: 'Oswald', sans-serif; font-weight: 300; font-size: clamp(30px, 3.2vw, 58px); line-height: 0.82; letter-spacing: -0.01em; text-align: right; padding-right: 4px;"><a href="./index.html">53F4_2H</a></div>
+    <p style="margin: 0; font-size: 12.5px; line-height: 1.5; min-width: 0;">Nestled in Japan's pristine nature, Therman Wellness Resort delivers an unparalleled high-end retreat focused on mind-body rejuvenation, bespoke healing therapies, and refined Japanese hospitality.</p>
+    <button style="justify-self: end; margin-top: 6px; display: flex; flex-direction: column; gap: 6px; width: 38px; padding: 0; border: 0; background: none; cursor: pointer;">
+      <span style="display: block; height: 5px; background: #0a0a0a;"></span>
+      <span style="display: block; height: 5px; background: #0a0a0a;"></span>
+    </button>
+  </header>
+
+  <section data-screen-label="01 Textiles — THERMAN TEXTIELS" style="padding: 128px 34px 72px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 58%) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 28px;">
+      <h2 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0; white-space: nowrap;">THERMAN TEXTILES</h2>
+      <div style="max-width: 520px;">
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">THERMAN textiles begin with natural fibres chosen for how they feel against the body. Slowly spun, woven and finished, they become towels, bedding and clothing designed to bring softness into the everyday<br>Each piece carries the quiet, restorative character of THERMAN beyond the stay..</p>
+        
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/textile-hero.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="02 Textiles — TEXTURES FOR EVERYDAY REST" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/textile-textures.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">TEXTURES FOR EVERYDAY REST</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">Towels, bedding, throws and cushions are created with different weights, weaves and levels of softness. Each texture is considered in relation to the way it touches, surrounds or supports the body.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Together, they form a collection designed around comfort in its many forms.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="03 Textiles — COMFORT HELD CLOSE" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">COMFORT HELD CLOSE</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">A gentle weight helps the body settle. Softly woven blankets bring warmth without heaviness, creating a quiet layer of comfort for reading, resting or simply remaining still.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">The feeling is familiar from the rooms of THERMAN, now made to follow you home.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/textile-comfort.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="04 Textiles — SHAPED BY THE LANDSCAPE" style="padding: 72px 34px 72px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 58%) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 28px;">
+      <h3 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0; white-space: nowrap;">SHAPED BY THE LANDSCAPE</h3>
+      <div style="max-width: 520px;">
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">The colours and textures of the collection are drawn from the world surrounding THERMAN—<br>pale grasses, warm earth, weathered stone and the soft light of changing seasons.<br>Muted and natural, each textile settles into a space without disturbing its sense of calm.</p>
+        
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/textile-landscape.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="05 Textiles — MATERIALS WITH A MEMORY" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">MATERIALS WITH A MEMORY</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">Natural fibres retain a character of their own. Small variations in texture, tone and surface are embraced rather than removed, allowing each piece to feel quietly individual.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">With use, the fabric softens and becomes more familiar—holding the memory of the body and the life lived around it</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/textile-memory.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="06 Textiles — CLOSE TO ITS ORIGIN" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/textile-origin.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">CLOSE TO ITS ORIGIN</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">The collection begins with materials connected to the natural world. Fibres are selected for warmth, breathability and the way they change gracefully through time.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Their origin remains present in every surface—creating textiles that feel grounded, tactile and naturally at ease.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="07 Textiles — MADE TO MOVE NATURALLY" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">MADE TO MOVE NATURALLY</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">THERMAN clothing is designed to move with the body rather than shape it. Relaxed silhouettes, soft structures and generous proportions create freedom from unnecessary restriction.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Made for quiet mornings, open air and days allowed to unfold at their own pace.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/textile-move.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="08 Textiles — SOFTNESS, WORN" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/textile-worn.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">SOFTNESS, WORN</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">The warmth experienced within THERMAN becomes something that can be worn. Tactile knits and relaxed layers surround the body with comfort while maintaining a clean, considered form.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Clothing becomes another way to carry a sense of shelter through the day.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="09 Textiles — ROOM TO BREATHE" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">ROOM TO BREATHE</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">Ease begins with space around the body. Soft lines, light volume and breathable textures allow each garment to feel comfortable across movement and rest.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Nothing holds too closely or asks the body to perform. The clothes simply follow its natural rhythm.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/textile-breathe.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="10 Textiles — LAYERS OF WARMTH" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/textile-layers.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">LAYERS OF WARMTH</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">Different textures and weights can be layered as the temperature and body change. Each piece is designed to sit comfortably with the next, creating warmth that feels adaptable rather than excessive.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">A quiet wardrobe shaped around season, sensation and personal ease.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="11 Textiles — EASE WITHOUT EXCESS" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">EASE WITHOUT EXCESS</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">Clean silhouettes and understated details allow the material to remain at the centre. The collection feels refined without becoming formal, and comfortable without losing its sense of structure.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">These are clothes for feeling settled—in the room, in the landscape and within yourself.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/textile-ease.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="12 Textiles — DESIGNED AROUND THE BODY" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/textile-body.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">DESIGNED AROUND THE BODY</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">Proportion is considered through movement: the fall of a shoulder, <br>the width of a sleeve and the space created with every step.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Each garment is shaped to feel intuitive from the moment it is worn, bringing physical ease into the smallest movements of the day.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="13 Textiles — A QUIETER WAY TO DRESS" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">A QUIETER WAY TO DRESS</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">A restrained palette and softened forms make each piece easy to return to. <br>Garments can be worn together or layered with what already belongs to you.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Simple, versatile and tactile, the collection reduces the distance <br>between dressing and feeling at ease.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/textile-dress.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="14 Textiles — THE FEELING, CONTINUED" style="padding: 72px 34px 72px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 58%) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 28px;">
+      <h3 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0; white-space: nowrap;">THE FEELING, CONTINUED</h3>
+      <div style="max-width: 520px;">
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">The experience of THERMAN does not have to remain within its rooms. Worn against the body or placed throughout the home, each textile carries forward the same sense of softness, warmth and unhurried comfort.<br>A lasting part of the stay, made for the life that continues beyond it.</p>
+        
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/textile-continued.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <footer style="padding: 76px 34px 40px; border-top: 1px solid #d8d5ce;">
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 34px; border-top: 1px solid #d8d5ce; padding-top: 34px; font-size: 12px; line-height: 1.9;">
+      <div>
+        <div style="font-family: 'Jost', sans-serif; font-weight: 200; font-size: 22px; letter-spacing: 0.4em; padding-left: 0.4em;">THERMAN</div>
+        <div style="font-size: 11px; letter-spacing: 0.34em; padding-left: 0.34em; margin-top: 6px; color: #6b6b66;">WELLNESS</div>
+      </div>
+      <div style="color: #3a3a36;">
+        <a href="./brand.html#philosophy">Our Philosophy</a><br>
+        <a href="./brand.html#setting">The Setting</a><br>
+        <a href="./brand.html#architecture">Architecture &amp; Spaces</a>
+      </div>
+      <div style="color: #3a3a36;">
+        <a href="./stay.html">Rooms &amp; Reservation</a><br>
+        <a href="./wellness.html">Wellness Programmes</a><br>
+        <a href="./dining.html">Dining &amp; Hours</a>
+      </div>
+      <div style="color: #3a3a36;">
+        Reservations<br>
+        reservations@therman.jp<br>
+        Japan — 53F4_2H
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; padding-top: 26px; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #9a978f;">
+      <span>© 2026 THERMAN WELLNESS RESORT</span>
+      <span>ALL RIGHTS RESERVED</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

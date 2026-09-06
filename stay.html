@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&amp;family=Jost:wght@100..900&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: 130px; scroll-behavior: smooth; }
+
+  body { margin: 0; background: #fdfdfc; color: #0a0a0a; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #6b6b66; }
+  .nav-dining.nav-active:hover .nav-sub, .nav-dining.nav-active:focus-within .nav-sub { display: flex !important; }
+  .nav-sub > a { background: #0a0a0a; color: #fdfdfc; padding: 0 6px; line-height: 1.15; transition: background .25s ease; }
+  .nav-sub > a:hover { background: #4a4a4a; }
+  ::selection { background: #0a0a0a; color: #fdfdfc; }
+</style>
+</helmet>
+
+<div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #fdfdfc; color: #0a0a0a; min-height: 100vh;">
+
+  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #fdfdfc; display: grid; grid-template-columns: max-content minmax(max-content, 1fr) minmax(0, 300px) auto; gap: 20px; align-items: start; padding: 26px 34px 22px;">
+    <nav style="display: grid; grid-template-columns: max-content max-content; column-gap: 34px; row-gap: 7px; font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase;">
+      <a href="./brand.html">THERMAN</a>
+      <span class="nav-dining" style="position: relative; display: inline-block; justify-self: start;"><a href="./dining.html">DINING</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./gamasote.html">GAMASOTE</a><a href="./jang-paul-gourmet.html">JANG PAUL GOURMET</a><a href="./nurun-bowl.html">NURUN BOWL</a><a href="./poksam-bbq.html">POKSAM BBQ</a></span></span>
+      <a href="./stay.html" style="white-space: nowrap;">WELLNESS &amp; STAY</a>
+      <span class="nav-dining" style="position: relative; display: inline-block; justify-self: start;"><a href="./product.html">PRODUCT</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./fabric.html">TEXTILES</a><a href="./furniture.html">FURNITURE</a><a href="./oocoffee.html">O O C O F F E E</a></span></span>
+      <span class="nav-dining" style="position: relative; display: inline-block; justify-self: start;"><a href="./wellness.html">AMAC WELLNESS &amp; BEAUTY</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./amac-spa.html">AMAC SPA</a><a href="./amac-cosmetic.html">AMAC COSMETICS</a><a href="./amac-medi.html">AMAC MEDI</a></span></span>
+      <span></span>
+    </nav>
+    <div style="font-family: 'Oswald', sans-serif; font-weight: 300; font-size: clamp(30px, 3.2vw, 58px); line-height: 0.82; letter-spacing: -0.01em; text-align: right; padding-right: 4px;"><a href="./index.html">53F4_2H</a></div>
+    <p style="margin: 0; font-size: 10px; line-height: 1.5; min-width: 0;">Nestled in Japan's pristine nature, Therman Wellness Resort delivers an unparalleled high-end retreat focused on mind-body rejuvenation, bespoke healing therapies, and refined Japanese hospitality.</p>
+    <button style="justify-self: end; margin-top: 6px; display: flex; flex-direction: column; gap: 6px; width: 38px; padding: 0; border: 0; background: none; cursor: pointer;">
+      <span style="display: block; height: 5px; background: #0a0a0a;"></span>
+      <span style="display: block; height: 5px; background: #0a0a0a;"></span>
+    </button>
+  </header>
+  <section data-screen-label="01 Stay — Opening" style="padding: 128px 34px 72px;">
+    <div style="display: grid; grid-template-columns: minmax(0, auto) minmax(0, 1fr) minmax(0, auto); gap: 40px; align-items: start; padding: 0 0 12px;">
+      <div style="font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 60px; line-height: 0.9; letter-spacing: -0.005em; white-space: nowrap;">STAY</div>
+      <p style="margin: 0; justify-self: center; max-width: 380px; font-size: 10px; line-height: 1.5;"><span style="display: block;">Rooms held low against the slope,</span><span style="display: block;">each one turned toward a different part</span><span style="display: block;">of the landscape. Three types, all with a bath</span><span style="display: block;">set at the window and a terrace facing the valley.</span></p>
+      <div style="font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 60px; line-height: 0.9; letter-spacing: -0.005em; white-space: nowrap; text-align: right;">ROOMS &amp; SUITES</div>
+    </div>
+    <div style="position: relative; width: 100%; height: calc(88vh - 172px); min-height: 480px; background: #eceae5; overflow: hidden;">
+      <img src="./media/stay-hero-bath.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  
+  <section data-screen-label="02 BATHING WITH THE VIEW" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <video src="./media/stay-bathing-with-the-view.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px; container-type: inline-size;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0;">BATHING <br>WITH THE VIEW</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.65;">The bath is positioned where the boundary between inside and outside begins to disappear. <br>Warm water surrounds the body while the landscape remains fully present beyond the glass.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.65;">There is nothing else to attend to. The body slows, the view grows clearer and <br>bathing becomes a private ritual of release.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="03 AN INNER WORLD" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px; container-type: inline-size;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0;">AN INNER WORLD</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.65;">Private outdoor spaces sit within each villa as rooms without ceilings. <br>A jacuzzi, fire and places to rest are gathered together, sheltered from view but open to the air.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.65;">Everything needed for the day remains within reach, creating the feeling of entering a small world of your own</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <video src="./media/stay-an-inner-world.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+    </div>
+  </section>
+
+  <section data-screen-label="04 YOUR OWN WATER" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <video src="./media/stay-your-own-water.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px; container-type: inline-size;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0;">YOUR <br>OWN WATER</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.65;">Each villa has a private pool reserved entirely for its guests. Surrounded by greenery, <br>the water becomes part of the landscape rather than a separate amenity.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.65;">Swim, float or remain still. Without shared hours or other people nearby, the body is free to follow its own pace.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="05 NATURE, BEFORE EVERYTHING" style="padding: 72px 34px 72px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 58%) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 28px;">
+      <h3 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0; white-space: nowrap">NATURE, BEFORE EVERYTHING</h3>
+      <div style="max-width: 520px">
+        <p style="margin: 0; font-size: 10px; line-height: 1.7">Beyond the villa, the landscape opens into long views, changing weather and wide stretches of green. Nature is not presented as an attraction to visit, but as a constant presence throughout the stay.</p>
+        
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/stay-nature-before-everything.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="06 RITUALS AT YOUR PACE" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <video src="./media/stay-rituals-at-your-pace.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px; container-type: inline-size;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0;">RITUALS <br>AT YOUR PACE</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.65;">Daily routines become quieter when they no longer need to be rushed. Washing, dressing <br>and preparing for the day unfold through natural materials, soft light and the view beyond the room.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.65;">Even the smallest rituals are given enough space to feel restorative.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="07 PLACED APART" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px; container-type: inline-size;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0;">PLACED <br>APART</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.65;">Each villa is positioned independently, with space between one stay and the next. <br>Privacy is created through distance, orientation and the natural surroundings rather than through walls alone.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.65;">There are no shared corridors and no need to pass through crowded spaces. <br>The villa is reached quietly and left entirely to you.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <video src="./media/stay-placed-apart.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+    </div>
+  </section>
+
+  <section data-screen-label="14 INSIDE THE SEASON" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <video src="./media/stay-inside-the-season.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px; container-type: inline-size;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0;">INSIDE <br>THE SEASON</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.65;">Each villa changes with the world outside it. Winter light, summer greenery, rain and <br>mist alter the atmosphere of the rooms without changing their essential calm.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.65;">Warm interiors and wide windows allow the season to remain present, <br>making every stay feel connected to its particular moment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="09 EVENINGS, HELD OPEN" style="padding: 72px 34px 72px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 58%) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 28px;">
+      <h3 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0; white-space: nowrap">EVENINGS, HELD OPEN</h3>
+      <div style="max-width: 520px">
+        <p style="margin: 0; font-size: 10px; line-height: 1.7">As the light softens, the outdoor space becomes an extension of the villa. Sit beside the water, <br>remain outside after dinner or watch the landscape gradually disappear into darkness.</p>
+        
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/stay-evenings-held-open.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="10 ROOM TO BE TOGETHER" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/stay-room-to-be-together.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px; container-type: inline-size;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0;">ROOM TO BE TOGETHER</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.65;">Privacy does not have to mean being alone. Villas create a secluded setting where couples, <br>families and friends can spend time together without the presence of the wider resort.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.65;">Conversation becomes unhurried, meals extend naturally and shared time feels <br>protected from everything beyond the villa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="11 SOFTNESS WITHIN" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px; container-type: inline-size;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0;">SOFTNESS <br>WITHIN</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.65;">THERMAN bedding, textiles and furniture bring warmth to the restrained interiors. <br>Natural textures, gentle weight and low, comfortable forms allow the room to feel settled rather than styled.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.65;">Every surface is considered in relation to the body, creating an environment <br>that supports deeper and more comfortable rest.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/stay-softness-within.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="12 OPEN TO THE AIR" style="padding: 72px 34px 72px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 58%) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 28px;">
+      <h3 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0; white-space: nowrap">OPEN TO THE AIR</h3>
+      <div style="max-width: 520px">
+        <p style="margin: 0; font-size: 10px; line-height: 1.7">An outdoor shower brings an everyday ritual into direct contact with the landscape. <br>Water, air, sunlight and temperature are experienced together rather than separated by the room.</p>
+        
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/stay-open-to-the-air.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="13 A SHELTER IN NATURE" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px; container-type: inline-size;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0;">A SHELTER <br>IN NATURE</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.65;">The villa is designed as a shelter rather than a barrier. Glass holds the weather at a comfortable distance <br>while keeping the surrounding trees, rain and changing light close.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.65;">Protected inside but visually connected to nature, guests can experience seclusion without feeling enclosed.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <video src="./media/stay-a-shelter-in-nature.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+    </div>
+  </section>
+
+  <section data-screen-label="08 EVERYTHING WITHIN" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <video src="./media/stay-everything-within.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px; container-type: inline-size;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0;">EVERYTHING <br>WITHIN</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.65;">A private pool, jacuzzi, outdoor space and places to rest are brought together within the boundaries of each villa.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.65;">There is little reason to leave and no pressure to move through a programme. <br>The day can remain contained within one private environment, shaped only by what the body needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="15 ARRIVAL, SLOWLY" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px; container-type: inline-size;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0;">ARRIVAL, <br>SLOWLY</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.65;">The approach to each villa creates a gradual transition away from the wider world.<br>A private path moves through the landscape before the entrance is revealed.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.65;">With every step, outside noise feels more distant. Arrival becomes the first part of the wellness experience<br>—a quiet passage into privacy, shelter and rest.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/stay-arrival-slowly.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="16 MOVEMENT THROUGH THE LAND" style="padding: 72px 34px 72px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 58%) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 28px;">
+      <h3 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0; white-space: nowrap">MOVEMENT THROUGH THE LAND</h3>
+      <div style="max-width: 520px">
+        <p style="margin: 0; font-size: 10px; line-height: 1.7">Open ground invites the body to move without urgency. A round of golf becomes time spent walking, breathing and observing changes in distance, weather and light.</p>
+        
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/stay-movement-through-the-land.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="17 FURNISHED FOR STILLNESS" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px; container-type: inline-size;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0;">FURNISHED FOR STILLNESS</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.65;">THERMAN furniture is designed specifically for the way the villas are lived in. <br>Low proportions, generous surfaces and tactile materials keep the body close to the room and the view beyond it.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.65;">Nothing competes for attention. Each piece supports the act of sitting longer, <br>moving slower and feeling fully settled within the space.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/stay-furnished-for-stillness.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="18 A WORLD FOR TWO" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/stay-a-world-for-two.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px; container-type: inline-size;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0;">A WORLD FOR TWO</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.65;">The villa creates a place where two people can withdraw without feeling confined. <br>Shared moments unfold without schedules, interruptions or the need to be anywhere else.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.65;">Surrounded by open air and distant views, time together becomes quieter, slower and entirely your own.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="19 ALONE WITH THE HORIZON" style="padding: 72px 34px 72px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 58%) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 28px;">
+      <h3 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0; white-space: nowrap">ALONE WITH THE HORIZON</h3>
+      <div style="max-width: 520px">
+        <p style="margin: 0; font-size: 10px; line-height: 1.7">There are places within each stay where nothing is expected of you. Lie back, <br>watch the light move across the landscape and allow the distance to hold your attention.</p>
+        
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/stay-alone-with-the-horizon.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="20 WHERE THE WORLD FALLS AWAY" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/stay-where-the-world-falls-away.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px; container-type: inline-size;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0;">WHERE THE WORLD FALLS AWAY</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.65;">From the villa, the world beyond feels distant enough to release. Architecture recedes, <br>daily noise disappears and nature becomes the clearest presence.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.65;">THERMAN offers more than a private place to stay. It creates the feeling of being held <br>within your own landscape—secluded, restored and connected to something quieter than everyday life.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="21 WHERE THE ROOM OPENS" style="padding: 72px 34px 72px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 58%) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 28px;">
+      <h3 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0; white-space: nowrap">WHERE THE ROOM OPENS</h3>
+      <div style="max-width: 520px">
+        <p style="margin: 0; font-size: 10px; line-height: 1.7">The room does not end at its walls. Morning opens directly onto forest, sky and distant ridgelines, <br>bringing the scale and stillness of nature into the most private part of the villa.</p>
+        
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/stay-where-the-room-opens.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <div id="reserve" style="padding: 92px 34px 24px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px;">
+    <h2 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 1; white-space: nowrap; min-width: 0; text-transform: uppercase">All Stays Include</h2>
+    <p style="margin: 0 0 12px; max-width: 460px; font-size: 10px; line-height: 1.6;">Every room rate carries the same set of inclusions, whichever type you choose.</p>
+  </div>
+  <section data-screen-label="05 Stay — Reservation" style="padding: 24px 34px 100px;">
+    <div>
+      <div style="background: #f4efe8; padding: 70px 60px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 60px;">
+      <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 26px;">
+        <li style="display: grid; grid-template-columns: 10px minmax(0, 1fr); column-gap: 22px; font-size: 13px; line-height: 1.7; color: #3a3a36;"><span style="color: #9a978f;">•</span><span>Round-trip transfers from the nearest station</span></li>
+        <li style="display: grid; grid-template-columns: 10px minmax(0, 1fr); column-gap: 22px; font-size: 13px; line-height: 1.7; color: #3a3a36;"><span style="color: #9a978f;">•</span><span>Afternoon tea service, 14:30 — 16:30 in the Lounge</span></li>
+        <li style="display: grid; grid-template-columns: 10px minmax(0, 1fr); column-gap: 22px; font-size: 13px; line-height: 1.7; color: #3a3a36;"><span style="color: #9a978f;">•</span><span>Access to the wellness facilities including thermal bathing halls, steam rooms, outdoor pool and yoga studio</span></li>
+      </ul>
+      <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 26px;">
+        <li style="display: grid; grid-template-columns: 10px minmax(0, 1fr); column-gap: 22px; font-size: 13px; line-height: 1.7; color: #3a3a36;"><span style="color: #9a978f;">•</span><span>Daily breakfast and dinner (excluding beverages)</span></li>
+        <li style="display: grid; grid-template-columns: 10px minmax(0, 1fr); column-gap: 22px; font-size: 13px; line-height: 1.7; color: #3a3a36;"><span style="color: #9a978f;">•</span><span>Welcome amenities in the room</span></li>
+      </ul>
+      <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 26px;">
+        <li style="display: grid; grid-template-columns: 10px minmax(0, 1fr); column-gap: 22px; font-size: 13px; line-height: 1.7; color: #3a3a36;"><span style="color: #9a978f;">•</span><span>One complimentary private experience per night of stay (select experiences only)</span></li>
+        <li style="display: grid; grid-template-columns: 10px minmax(0, 1fr); column-gap: 22px; font-size: 13px; line-height: 1.7; color: #3a3a36;"><span style="color: #9a978f;">•</span><span>In-room refreshments and beverages, including alcoholic drinks</span></li>
+      </ul>
+      </div>
+    </div>
+  </section>
+  <footer style="padding: 0 34px 40px;">
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 34px; border-top: 1px solid #d8d5ce; padding-top: 34px; font-size: 12px; line-height: 1.9;">
+      <div>
+        <div style="font-family: 'Jost', sans-serif; font-weight: 200; font-size: 22px; letter-spacing: 0.4em; padding-left: 0.4em;">THERMAN</div>
+        <div style="font-size: 11px; letter-spacing: 0.34em; padding-left: 0.34em; margin-top: 6px; color: #6b6b66;">WELLNESS</div>
+      </div>
+      <div style="color: #3a3a36;">
+        <a href="./brand.html#philosophy">Our Philosophy</a><br>
+        <a href="./brand.html#setting">The Setting</a><br>
+        <a href="./brand.html#architecture">Architecture &amp; Spaces</a>
+      </div>
+      <div style="color: #3a3a36;">
+        <a href="./stay.html">Rooms &amp; Reservation</a><br>
+        <a href="./wellness.html">Wellness Programmes</a><br>
+        <a href="./dining.html">Dining &amp; Hours</a>
+      </div>
+      <div style="color: #3a3a36;">
+        Reservations<br>
+        reservations@therman.jp<br>
+        Japan — 53F4_2H
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; padding-top: 26px; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #9a978f;">
+      <span>© 2026 THERMAN WELLNESS RESORT</span>
+      <span>ALL RIGHTS RESERVED</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

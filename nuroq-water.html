@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&amp;family=Jost:wght@100..900&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: 148px; scroll-behavior: smooth; }
+  body { margin: 0; background: #fdfdfc; color: #0a0a0a; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #6b6b66; }
+  .nav-dining.nav-active:hover .nav-sub, .nav-dining.nav-active:focus-within .nav-sub { display: flex !important; }
+  .nav-sub > a { background: #0a0a0a; color: #fdfdfc; padding: 0 6px; line-height: 1.15; transition: background .25s ease; }
+  .nav-sub > a:hover { background: #4a4a4a; }
+  .nav-dining.nav-active { display: inline-flex !important; align-items: baseline; gap: 16px; white-space: nowrap; font-size: 11.5px; }
+  .nav-dining.nav-active > a { white-space: nowrap; }
+  .nav-dining.nav-active { position: relative; }
+  .nav-dining.nav-active .nav-sub { display: inline-flex !important; position: absolute !important; left: 100%; top: 0; margin-left: 16px; padding: 0 !important; background: none !important; gap: 20px !important; }
+@media (max-width: 1300px) { .nav-dining.nav-active .nav-sub { display: none !important; } .nav-dining.nav-active:hover .nav-sub, .nav-dining.nav-active:focus-within .nav-sub { display: inline-flex !important; position: absolute !important; background: #fdfdfc !important; } }
+  ::selection { background: #0a0a0a; color: #fdfdfc; }
+</style>
+</helmet>
+
+<div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #fdfdfc; color: #0a0a0a; min-height: 100vh;">
+
+  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #fdfdfc; display: grid; grid-template-columns: max-content minmax(max-content, 1fr) minmax(0, 300px) auto; gap: 20px; align-items: start; padding: 26px 34px 22px;">
+    <nav style="display: grid; grid-template-columns: max-content max-content; column-gap: 34px; row-gap: 7px; font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase;">
+      <a href="./brand.html">THERMAN</a>
+      <span class="nav-dining" style="position: relative; display: inline-block; justify-self: start;"><a href="./dining.html">DINING</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./gamasote.html">GAMASOTE</a><a href="./jang-paul-gourmet.html">JANG PAUL GOURMET</a><a href="./nurun-bowl.html">NURUN BOWL</a><a href="./poksam-bbq.html">POKSAM BBQ</a></span></span>
+      <a href="./stay.html" style="white-space: nowrap;">WELLNESS &amp; STAY</a>
+      <span class="nav-dining nav-active" style="position: relative; display: inline-block; justify-self: start;"><a href="./product.html">PRODUCT</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./fabric.html">TEXTILES</a><a href="./furniture.html">FURNITURE</a><a href="./oocoffee.html">O O C O F F E E</a></span></span>
+      <span class="nav-dining" style="position: relative; display: inline-block; justify-self: start;"><a href="./wellness.html">AMAC WELLNESS &amp; BEAUTY</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./amac-spa.html">AMAC SPA</a><a href="./amac-cosmetic.html">AMAC COSMETICS</a><a href="./amac-medi.html">AMAC MEDI</a></span></span>
+      <span></span>
+    </nav>
+    <div style="font-family: 'Oswald', sans-serif; font-weight: 300; font-size: clamp(30px, 3.2vw, 58px); line-height: 0.82; letter-spacing: -0.01em; text-align: right; padding-right: 4px;"><a href="./index.html">53F4_2H</a></div>
+    <p style="margin: 0; font-size: 12.5px; line-height: 1.5; min-width: 0;">Nestled in Japan's pristine nature, Therman Wellness Resort delivers an unparalleled high-end retreat focused on mind-body rejuvenation, bespoke healing therapies, and refined Japanese hospitality.</p>
+    <button style="justify-self: end; margin-top: 6px; display: flex; flex-direction: column; gap: 6px; width: 38px; padding: 0; border: 0; background: none; cursor: pointer;">
+      <span style="display: block; height: 5px; background: #0a0a0a;"></span>
+      <span style="display: block; height: 5px; background: #0a0a0a;"></span>
+    </button>
+  </header>
+
+  
+
+  <section data-screen-label="01 NUROQ — A CUE TO FOCUS" style="padding: 128px 34px 72px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 58%) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 28px;">
+      <h2 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">A CUE TO FOCUS</h2>
+      <div style="max-width: 520px;">
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Focus begins by returning attention to the present. <br>NEUROCUE transforms everyday hydration into a simple <br>signal—a moment to drink, reset and begin again.</p>
+        
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/nuroq-hero.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="02 NUROQ — Simply Mix with Water" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">Simply Mix <br>with Water</h3>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Pour one stick into 450–500 mL of water and shake until fully dissolved. <br>No complicated preparation and no additional equipment are needed.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">What begins as an ordinary bottle of water becomes a deliberate cue to pause, <br>hydrate and prepare for what comes next.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/nuroq-simply-mix-with-water.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="03 NUROQ — Formulated for the Focus Routine" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/nuroq-formulated-for-the-focus-rou.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">Formulated <br>for <br>the Focus Routine</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">Each serving brings together 35–40 mg of caffeine, 80–100 mg of L-theanine and low-sugar electrolytes.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Rather than relying on intensity alone, the formula is built around balance—combining gentle stimulation, hydration and a calmer approach to sustained attention.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="04 NUROQ — Focus in a Portable Format" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">Focus in <br>a Portable Format</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">Individually packed sticks make the routine easy to carry and simple to repeat. Keep one beside your desk, inside your bag or wherever concentration may be needed.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">A small format creates a clear transition between one part of the day and the next.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/nuroq-focus-in-a-portable-format.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="05 NUROQ — The Morning Work Ritual" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/nuroq-the-morning-work-ritual.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">The Morning <br>Work Ritual</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">The first task of the day can set the rhythm for everything that follows. Mix NEUROCUE before opening the day’s work and take a moment to decide where your attention belongs.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Hydration becomes the beginning of a more deliberate morning.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="06 NUROQ — Insight Before Assertion" style="padding: 72px 34px 72px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 58%) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 28px;">
+      <h3 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">Insight Before Assertion</h3>
+      <div style="max-width: 520px;">
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">NEUROCUE begins with research rather than trend. Studies related to attention, caffeine, <br>L-theanine and hydration are reviewed and translated into a routine made for everyday life.</p>
+        
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/nuroq-insight.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="07 NUROQ — THE AFTERNOON RESET" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/nuroq-the-afternoon-reset.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">THE AFTERNOON RESET</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">When the energy of the morning begins to fade, another strong coffee is not always what the day needs.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">NEUROCUE offers a lighter second cue—combining measured caffeine with L-theanine, electrolytes and water to help the afternoon feel more composed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="08 NUROQ — ROUTINE, DESIGNED" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">ROUTINE, <br>DESIGNED</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">Attention changes throughout the day. It may be needed when work begins, <br>when energy dips or before a task that requires sustained concentration.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">NEUROCUE fits into these transitions as a repeatable signal: pause, add water and return to what matters now.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/nuroq-routine-designed.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="09 NUROQ — Only What the Moment Needs" style="padding: 72px 34px 72px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 58%) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 28px;">
+      <h3 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">Only What the Moment Needs</h3>
+      <div style="max-width: 520px;">
+        
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">The compact format removes unnecessary decisions from the routine, <br>allowing focus to begin with one simple action.</p>
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/nuroq-moment.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="10 NUROQ — Focus Beyond the Desk" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">Focus <br>Beyond the Desk</h3>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Concentration is not limited to intellectual work. <br>Movement also asks for awareness, timing and the ability to stay with the present moment.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">NEUROCUE brings the same focus ritual into active days, <br>supporting hydration before practice, training or time spent outdoors.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/nuroq-focus-beyond-the-desk.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="11 NUROQ — A Routine Within Reach" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/nuroq-a-routine-within-reach.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">A Routine Within Reach</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">A demanding schedule rarely unfolds exactly as planned. <br>Individual sticks allow the focus ritual to move naturally between work, travel and exercise.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Keep them within reach and use each serving as a small, intentional break in the pace of the day.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="12 NUROQ — Light, Clean and Easy to Return To" style="padding: 72px 34px 72px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 58%) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 28px;">
+      <h3 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">LIGHT, CLEAN&nbsp;</h3>
+      <div style="max-width: 520px;">
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Lemon brings a crisp beginning while white peach leaves a softer finish.<br>&nbsp;The flavour is clean and restrained, created to remain refreshing<br>&nbsp;throughout a full bottle of water.</p>
+        
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/nuroq-flavour.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="13 NUROQ — Attention Through the Body" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/nuroq-attention-through-the-body.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">Attention Through <br>the Body</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">Focused movement draws the mind away from scattered thought and back toward the body. <br>Breath, timing and physical response become the only things that matter.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">NEUROCUE complements this active rhythm with hydration that feels purposeful, <br>clear and easy to carry forward.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="14 NUROQ — Create the Transition" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">Create the Transition</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">Long periods of concentration begin before the work itself. <br>Preparing NEUROCUE creates a visible transition from interruption to intention.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Set the bottle beside you, clear the immediate space and allow the first sip to become the cue <br>that the next period belongs to one task.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/nuroq-create-the-transition.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="15 NUROQ — The Bottle as Part of the Ritual" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/nuroq-the-bottle-as-part-of-the-ri.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">The Bottle as <br>Part of the Ritual</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">The measured bottle makes the preparation clear: one stick with 450–500 mL of water.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Its transparent form keeps hydration visible throughout the day, <br>turning progress into something that can be noticed rather than forgotten.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="16 NUROQ — Every Detail Kept Close" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">Every Detail Kept Close</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">A secure cap, carrying loop and magnetic holder keep the bottle easy to use while moving between places.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">The functional details remain quiet but considered, allowing the focus <br>ritual to travel naturally from the room to the office, studio or outdoors.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/nuroq-every-detail-kept-close.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="17 NUROQ — From THERMAN into Everyday Life" style="padding: 72px 34px 72px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 58%) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 28px;">
+      <h3 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">From THERMAN into Everyday Life</h3>
+      <div style="max-width: 520px;">
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">The clarity experienced at THERMAN does not need to end with the stay. <br>NEUROCUE carries the same philosophy into daily life through one uncomplicated ritual<br>: add water, pause and return to your intention.</p>
+        
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/nuroq-everyday.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <footer style="padding: 76px 34px 40px; border-top: 1px solid #d8d5ce;">
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 34px; border-top: 1px solid #d8d5ce; padding-top: 34px; font-size: 12px; line-height: 1.9;">
+      <div>
+        <div style="font-family: 'Jost', sans-serif; font-weight: 200; font-size: 22px; letter-spacing: 0.4em; padding-left: 0.4em;">THERMAN</div>
+        <div style="font-size: 11px; letter-spacing: 0.34em; padding-left: 0.34em; margin-top: 6px; color: #6b6b66;">WELLNESS</div>
+      </div>
+      <div style="color: #3a3a36;">
+        <a href="./brand.html#philosophy">Our Philosophy</a><br>
+        <a href="./brand.html#setting">The Setting</a><br>
+        <a href="./brand.html#architecture">Architecture &amp; Spaces</a>
+      </div>
+      <div style="color: #3a3a36;">
+        <a href="./stay.html">Rooms &amp; Reservation</a><br>
+        <a href="./wellness.html">Wellness Programmes</a><br>
+        <a href="./dining.html">Dining &amp; Hours</a>
+      </div>
+      <div style="color: #3a3a36;">
+        Reservations<br>
+        reservations@therman.jp<br>
+        Japan — 53F4_2H
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; padding-top: 26px; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #9a978f;">
+      <span>© 2026 THERMAN WELLNESS RESORT</span>
+      <span>ALL RIGHTS RESERVED</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

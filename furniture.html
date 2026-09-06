@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&amp;family=Jost:wght@100..900&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: 148px; scroll-behavior: smooth; }
+  body { margin: 0; background: #fdfdfc; color: #0a0a0a; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #6b6b66; }
+  .nav-dining.nav-active:hover .nav-sub, .nav-dining.nav-active:focus-within .nav-sub { display: flex !important; }
+  .nav-sub > a { background: #0a0a0a; color: #fdfdfc; padding: 0 6px; line-height: 1.15; transition: background .25s ease; }
+  .nav-sub > a:hover { background: #4a4a4a; }
+  .nav-dining.nav-active { display: inline-flex !important; align-items: baseline; gap: 16px; white-space: nowrap; font-size: 11.5px; }
+  .nav-dining.nav-active > a { white-space: nowrap; }
+  .nav-dining.nav-active { position: relative; }
+  .nav-dining.nav-active .nav-sub { display: inline-flex !important; position: absolute !important; left: 100%; top: 0; margin-left: 16px; padding: 0 !important; background: none !important; gap: 20px !important; }
+@media (max-width: 1300px) { .nav-dining.nav-active .nav-sub { display: none !important; } .nav-dining.nav-active:hover .nav-sub, .nav-dining.nav-active:focus-within .nav-sub { display: inline-flex !important; position: absolute !important; background: #fdfdfc !important; } }
+  ::selection { background: #0a0a0a; color: #fdfdfc; }
+</style>
+</helmet>
+
+<div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #fdfdfc; color: #0a0a0a; min-height: 100vh;">
+
+  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #fdfdfc; display: grid; grid-template-columns: max-content minmax(max-content, 1fr) minmax(0, 300px) auto; gap: 20px; align-items: start; padding: 26px 34px 22px;">
+    <nav style="display: grid; grid-template-columns: max-content max-content; column-gap: 34px; row-gap: 7px; font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase;">
+      <a href="./brand.html">THERMAN</a>
+      <span class="nav-dining" style="position: relative; display: inline-block; justify-self: start;"><a href="./dining.html">DINING</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./gamasote.html">GAMASOTE</a><a href="./jang-paul-gourmet.html">JANG PAUL GOURMET</a><a href="./nurun-bowl.html">NURUN BOWL</a><a href="./poksam-bbq.html">POKSAM BBQ</a></span></span>
+      <a href="./stay.html" style="white-space: nowrap;">WELLNESS &amp; STAY</a>
+      <span class="nav-dining nav-active" style="position: relative; display: inline-block; justify-self: start;"><a href="./product.html">PRODUCT</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./fabric.html">TEXTILES</a><a href="./furniture.html">FURNITURE</a><a href="./oocoffee.html">O O C O F F E E</a></span></span>
+      <span class="nav-dining" style="position: relative; display: inline-block; justify-self: start;"><a href="./wellness.html">AMAC WELLNESS &amp; BEAUTY</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./amac-spa.html">AMAC SPA</a><a href="./amac-cosmetic.html">AMAC COSMETICS</a><a href="./amac-medi.html">AMAC MEDI</a></span></span>
+      <span></span>
+    </nav>
+    <div style="font-family: 'Oswald', sans-serif; font-weight: 300; font-size: clamp(30px, 3.2vw, 58px); line-height: 0.82; letter-spacing: -0.01em; text-align: right; padding-right: 4px;"><a href="./index.html">53F4_2H</a></div>
+    <p style="margin: 0; font-size: 12.5px; line-height: 1.5; min-width: 0;">Nestled in Japan's pristine nature, Therman Wellness Resort delivers an unparalleled high-end retreat focused on mind-body rejuvenation, bespoke healing therapies, and refined Japanese hospitality.</p>
+    <button style="justify-self: end; margin-top: 6px; display: flex; flex-direction: column; gap: 6px; width: 38px; padding: 0; border: 0; background: none; cursor: pointer;">
+      <span style="display: block; height: 5px; background: #0a0a0a;"></span>
+      <span style="display: block; height: 5px; background: #0a0a0a;"></span>
+    </button>
+  </header>
+
+  <section data-screen-label="01 Pieces — Shaped by the Landscape" style="padding: 128px 34px 72px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 58%) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 28px;">
+      <h2 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0; white-space: nowrap;">Shaped by the Landscape</h2>
+      <div style="max-width: 520px;">
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">THERMAN furniture begins with forms found in nature—layered ground, weathered stone,<br>&nbsp;distant ridgelines and surfaces shaped gradually through time.</p>
+        
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/piece-hero.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="02 Pieces — BORN FROM THE ROOMS" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/piece-rooms.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">BORN FROM THE ROOMS</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">The collection was first created for the rooms and shared spaces of THERMAN. Each piece responds to the architecture, natural light and slower rhythm of life within the resort.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">What feels instinctive in these spaces becomes furniture designed for life beyond them.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="03 Pieces — NATURE, LEFT VISIBLE" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">NATURE, <br>LEFT VISIBLE</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">Stone is not refined into perfect uniformity. Its irregular edges, weight and individual markings are preserved, allowing the material to remain recognisably of the earth.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Placed in contrast with a precise surface, its natural character becomes the centre of the piece.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/piece-nature.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="04 Pieces — DESIGNED TO GATHER" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/piece-gather.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">DESIGNED TO GATHER</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">Long, generous forms create space for people to sit, pause and come together. Repetition brings rhythm to the structure while allowing each person to occupy the piece in their own way.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Furniture becomes a quiet setting for conversation, shared meals and time spent without urgency.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="05 Pieces — A QUIET PRESENCE" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">A QUIET PRESENCE</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">THERMAN furniture is designed to belong naturally within a room. Restrained forms and grounded proportions create a sense of presence without competing with the architecture or view.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Each piece supports the atmosphere of the space—calm, balanced and intentionally uncluttered.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/piece-presence.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="06 Pieces — COMFORT THROUGH PROPORTION" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/piece-comfort.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">COMFORT THROUGH PROPORTION</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">Comfort is created through the relationship between the body and the object. Seat height, angle, depth and support are carefully considered to encourage the body to release its weight.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">The result is a chair that invites you to settle, remain and experience time more slowly.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="07 Pieces — BETWEEN ORDER AND NATURE" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">BETWEEN ORDER AND NATURE</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">Clean architectural lines meet the irregular forms of stone. One brings order and clarity; the other introduces variation, weight and the evidence of time.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">This balance between precision and nature runs throughout the THERMAN collection.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/piece-order.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="08 Pieces — THE LANDSCAPE, BROUGHT WITHIN" style="padding: 72px 34px 72px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 58%) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 28px;">
+      <h3 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0; white-space: nowrap;">THE LANDSCAPE, BROUGHT WITHIN</h3>
+      <div style="max-width: 520px;">
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">At THERMAN, furniture is positioned in constant relationship with the landscape. Low silhouettes preserve the view, while dark, grounded surfaces echo the stone, water and forest beyond.<br>The furniture does not separate guests from nature. It creates a quieter way to remain close to it.</p>
+        
+      </div>
+    </div>
+    <div style="position: relative; width: 100%; aspect-ratio: 2.2 / 1; background: #eceae5; overflow: hidden;">
+      <img src="./media/piece-within.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="09 Pieces — THE STAY, CONTINUED" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">THE STAY, CONTINUED</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">The furniture experienced throughout THERMAN is available to become part of your own home. The same chair that held a quiet morning or an unhurried evening can continue to support those moments beyond the resort.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">A lasting piece of the stay, made for everyday life.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/piece-continued.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="10 Pieces — MADE TO ADAPT" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/piece-adapt.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">MADE TO ADAPT</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">Shelving is conceived as an open structure rather than a fixed arrangement. Its length, height and internal rhythm can be reconsidered according to the objects it holds and the space it occupies.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">The design remains recognisably THERMAN while adapting naturally to a different way of living.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="11 Pieces — FORM IN CONTINUOUS FLOW" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 44px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">FORM IN CONTINUOUS FLOW</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">Curved surfaces soften the boundary between structure and movement. Shelves unfold in a continuous rhythm, creating changing reflections, shadows and spaces for the objects placed within them.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Functional in purpose yet sculptural in presence, the piece changes as it is viewed from different angles.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/piece-flow.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="12 Pieces — MADE FOR YOUR SPACE" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/piece-bespoke.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 30px 40px 30px 54px;">
+      <div style="max-width: 520px;">
+        <h3 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; text-transform: uppercase; min-width: 0;">MADE FOR <br>YOUR SPACE</h3>
+        <p style="margin: 0 0 18px; font-size: 10px; line-height: 1.7;">A THERMAN piece can be reimagined for the way you live. Dimensions, materials, finish and proportion are considered in relation to your room, your routines and the atmosphere you wish to create.</p>
+        <p style="margin: 0; font-size: 10px; line-height: 1.7;">Each bespoke piece is made to order through a personal consultation—bringing the comfort and stillness experienced at THERMAN into a form that belongs distinctly to your home.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding: 76px 34px 40px; border-top: 1px solid #d8d5ce;">
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 34px; border-top: 1px solid #d8d5ce; padding-top: 34px; font-size: 12px; line-height: 1.9;">
+      <div>
+        <div style="font-family: 'Jost', sans-serif; font-weight: 200; font-size: 22px; letter-spacing: 0.4em; padding-left: 0.4em;">THERMAN</div>
+        <div style="font-size: 11px; letter-spacing: 0.34em; padding-left: 0.34em; margin-top: 6px; color: #6b6b66;">WELLNESS</div>
+      </div>
+      <div style="color: #3a3a36;">
+        <a href="./brand.html#philosophy">Our Philosophy</a><br>
+        <a href="./brand.html#setting">The Setting</a><br>
+        <a href="./brand.html#architecture">Architecture &amp; Spaces</a>
+      </div>
+      <div style="color: #3a3a36;">
+        <a href="./stay.html">Rooms &amp; Reservation</a><br>
+        <a href="./wellness.html">Wellness Programmes</a><br>
+        <a href="./dining.html">Dining &amp; Hours</a>
+      </div>
+      <div style="color: #3a3a36;">
+        Reservations<br>
+        reservations@therman.jp<br>
+        Japan — 53F4_2H
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; padding-top: 26px; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #9a978f;">
+      <span>© 2026 THERMAN WELLNESS RESORT</span>
+      <span>ALL RIGHTS RESERVED</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>
