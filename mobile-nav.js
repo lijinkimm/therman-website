@@ -87,6 +87,32 @@
       });
     }
 
+    // The nav bar is always visible on mobile now (no hamburger toggle),
+    // fixed just below the header — push the page's own content down by
+    // however tall the (possibly multi-line, wrapped) bar renders, so it
+    // doesn't sit underneath it. Re-measure on resize/font-load/orientation
+    // change since the wrap count (and so the height) can shift.
+    var applyNavBarSpace = function () {
+      var bar = document.getElementById("mobile-nav-overlay");
+      if (!bar) return;
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.body.style.marginTop = bar.getBoundingClientRect().height + "px";
+      } else {
+        document.body.style.marginTop = "";
+      }
+    };
+    applyNavBarSpace();
+    window.addEventListener("resize", applyNavBarSpace);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(applyNavBarSpace);
+    }
+    var navSpaceTries = 0;
+    var navSpaceInterval = setInterval(function () {
+      applyNavBarSpace();
+      navSpaceTries++;
+      if (navSpaceTries > 40) clearInterval(navSpaceInterval);
+    }, 500);
+
     var desktopVideo = document.getElementById("hero-video-desktop");
     var mobileVideo = document.getElementById("hero-video-mobile");
     if (desktopVideo && mobileVideo) {
