@@ -150,8 +150,8 @@
     #mobile-nav-overlay .mn-grid > a.mn-active {
       background: #0a0a0a;
       color: #fdfdfc;
-      padding: 2px 8px;
-      margin: -2px -8px;
+      padding: 4px 8px;
+      margin: -4px -8px;
       width: fit-content;
     }
     #mobile-nav-overlay .mn-sub-container { margin-top: 6px; }
@@ -161,15 +161,15 @@
       max-width: 100%;
       flex-wrap: wrap;
       align-items: center;
-      gap: 6px 18px;
-      padding: 8px 10px;
+      gap: 4px 18px;
+      padding: 4px 8px;
       background: #0a0a0a;
     }
     #mobile-nav-overlay .mn-sub.mn-sub-open { display: flex; }
     #mobile-nav-overlay .mn-sub a {
       font-family: 'Jost', sans-serif;
       font-weight: 300;
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       white-space: nowrap;
@@ -238,10 +238,16 @@
   </header>
 
   <section data-screen-label="00 Brand Video" style="padding: 126px 34px 0;">
+    <div id="mobile-therm-title" style="display: none; grid-template-columns: minmax(0, auto) minmax(0, 1fr) minmax(0, auto); gap: 40px; align-items: start; padding: 0 0 12px;">
+      <div style="font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 60px; line-height: 0.9; letter-spacing: -0.005em; white-space: nowrap;">THERM</div>
+      <p style="margin: 0; justify-self: center;"></p>
+      <div style="font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 60px; line-height: 0.9; letter-spacing: -0.005em; white-space: nowrap; text-align: right;">+MAN</div>
+    </div>
     <div style="position: relative; width: 100%; height: calc(88vh - 172px); min-height: 480px; background: #0a0a0a; overflow: hidden;">
       <video id="hero-video-desktop" data-src="./media/therman-main-film.mp4" muted="muted" loop="loop" playsinline="playsinline" preload="none" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"></video>
       <video id="hero-video-mobile" data-src="./media/therman-main-film-mobile.mp4" poster="./media/therman-main-film-mobile-poster.jpg" muted="muted" loop="loop" playsinline="playsinline" preload="none" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none;"></video>
     </div>
+    <p id="mobile-therm-copy" style="display: none; margin: 24px 0 0; font-size: 12px; line-height: 1.6;">The prefix Therm- originates from the Latin thermae (public thermal baths/resorts) and the Ancient Greek thermos (warmth), conveying feelings of healing, warmth, and comfort.</p>
   </section>
 
   <section data-screen-label="01 Brand Film" style="padding: 132px 34px 0;">
