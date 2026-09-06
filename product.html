@@ -112,11 +112,13 @@
       padding: 14px 64px 14px 10px;
     }
     #mobile-nav-overlay .mn-top-row {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 16px;
       align-items: center;
       margin-bottom: 10px;
     }
+    #mobile-nav-overlay .mn-code { justify-self: start; }
     #mobile-nav-overlay .mn-brand {
       font-family: 'Jost', sans-serif;
       font-weight: 500;
