@@ -306,7 +306,17 @@
       );
       var observeAutoplayVideos = function () {
         document.querySelectorAll("video[autoplay]").forEach(function (video) {
-          if (video.dataset.autoplayObserved) return;
+          if (video.dataset.autoplayObserved) {
+            // Already-intersecting videos only get one initial play()
+            // call from the observer (no further callbacks fire while
+            // they stay in view), so a silently-rejected attempt can
+            // leave them stuck paused forever. Retry until it sticks.
+            if (video.paused && !video.hasAttribute("data-src")) {
+              var retryPromise = video.play();
+              if (retryPromise && retryPromise.catch) retryPromise.catch(function () {});
+            }
+            return;
+          }
           video.dataset.autoplayObserved = "1";
           autoplayObserver.observe(video);
         });
