@@ -282,5 +282,42 @@
       wallFixTries++;
       if (wallFixTries > 40) clearInterval(wallFixInterval);
     }, 500);
+
+    // Pages with many autoplay="autoplay" videos (brand.html has 13+) hit
+    // Safari's cap on how many can actually play at once — videos past
+    // that budget silently stay paused, showing a native play button,
+    // even though every attribute is set correctly. Re-issue .play() on
+    // each video as it enters the viewport (and pause off-screen ones to
+    // free up the budget for the next one) so every video gets its turn.
+    if ("IntersectionObserver" in window) {
+      var autoplayObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            var video = entry.target;
+            if (entry.isIntersecting) {
+              var playPromise = video.play();
+              if (playPromise && playPromise.catch) playPromise.catch(function () {});
+            } else if (!video.hasAttribute("data-src")) {
+              video.pause();
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+      var observeAutoplayVideos = function () {
+        document.querySelectorAll("video[autoplay]").forEach(function (video) {
+          if (video.dataset.autoplayObserved) return;
+          video.dataset.autoplayObserved = "1";
+          autoplayObserver.observe(video);
+        });
+      };
+      observeAutoplayVideos();
+      var autoplayScanTries = 0;
+      var autoplayScanInterval = setInterval(function () {
+        observeAutoplayVideos();
+        autoplayScanTries++;
+        if (autoplayScanTries > 40) clearInterval(autoplayScanInterval);
+      }, 500);
+    }
   });
 })();
