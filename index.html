@@ -203,7 +203,8 @@
     [style*="padding: 92px 34px 24px;"] { padding: 92px 8px 24px !important; }
     #hero-video-desktop { display: none !important; }
     #hero-video-mobile { display: block !important; object-fit: contain !important; }
-    #hero-video-wrap { height: auto !important; min-height: 0 !important; aspect-ratio: 1200 / 596 !important; }
+    #hero-video-wrap { display: block !important; height: auto !important; min-height: 0 !important; aspect-ratio: 1200 / 596 !important; }
+    #desktop-hero-redesign { display: none !important; }
     #brand-film-wrap { height: 42vh !important; min-height: 320px !important; }
     section[data-screen-label="00 Brand Video"] { padding: 96px 8px 0 !important; }
     #stay h2 { text-transform: uppercase !important; }
@@ -248,9 +249,22 @@
       <p style="margin: 0; justify-self: center;"></p>
       <div style="font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 60px; line-height: 0.9; letter-spacing: -0.005em; white-space: nowrap; text-align: right;">+MAN</div>
     </div>
-    <div id="hero-video-wrap" style="position: relative; width: 100%; aspect-ratio: 10 / 5; height: auto; background: #0a0a0a; overflow: hidden;">
+    <div id="hero-video-wrap" style="position: relative; width: 100%; aspect-ratio: 10 / 5; height: auto; background: #0a0a0a; overflow: hidden; display: none;">
       <video id="hero-video-desktop" data-src="./media/therman-main-film.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="none" fetchpriority="low" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom;"></video>
       <video id="hero-video-mobile" data-src="./media/therman-main-film-mobile.mp4" poster="./media/therman-main-film-mobile-poster.jpg" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="none" fetchpriority="low" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; display: none;"></video>
+    </div>
+    <div id="desktop-hero-redesign">
+      <div style="font-family: 'Oswald', sans-serif; font-weight: 200; font-size: min(150px, 7.6vw); line-height: 0.95; letter-spacing: -0.01em; text-transform: uppercase; white-space: nowrap;">ORIGIN, RECOVERY</div>
+      <div style="font-family: 'Oswald', sans-serif; font-weight: 200; font-size: min(150px, 7.6vw); line-height: 0.95; letter-spacing: -0.01em; text-transform: uppercase; white-space: nowrap; margin: 0 0 40px;">TOMORROW _ THERMAN</div>
+      <div style="display: grid; grid-template-columns: minmax(0, 62%) minmax(0, 1fr); gap: 40px;">
+        <div style="position: relative; width: 100%; aspect-ratio: 10 / 5; background: #0a0a0a; overflow: hidden;">
+          <img src="./media/hero-origin-recovery.jpg" alt="Tokyo skyline at dusk" fetchpriority="high" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+        <div style="display: flex; flex-direction: column; justify-content: space-between;">
+          <p style="margin: 0; font-size: 10px; line-height: 1.7;">Escape the urban bustle and immerse yourself in absolute tranquility, where your sanctuary at Therman Wellness begins. Natural thermal waters rich in minerals combine with specialized medical detox solutions to melt away deep fatigue and restore cellular vitality. Unwind in exclusive, secluded suites while expert therapists deliver tailored 1:1 recovery care designed for your body's specific needs. As artfully crafted organic cuisine nourishes you from within, guided meditation and forest yoga reclaim your inner peace. Soaking in panoramic views from our open-air infinity bade pool, enveloped by natural soundscapes and therapeutic aromatherapy, you will awaken your senses, rejuvenate your spirit, and return to daily life fully energized.</p>
+          <div style="font-family: 'Jost', sans-serif; font-weight: 200; font-size: 22px; line-height: 1.2; text-transform: uppercase;">THERMAN<br>WELLNESS<br>RESORT</div>
+        </div>
+      </div>
     </div>
     <p id="mobile-therm-copy" style="display: none; margin: 24px 0 0; font-size: 12px; line-height: 1.6;">The prefix Therm- originates from the Latin thermae (public thermal baths/resorts) and the Ancient Greek thermos (warmth), conveying feelings of healing, warmth, and comfort.</p>
   </section>
