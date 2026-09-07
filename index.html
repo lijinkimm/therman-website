@@ -66,26 +66,6 @@
     section:has(> div[style*="grid-template-columns: minmax(0px, 58%)"]) > *:not([style*="grid-template-columns"]) {
       order: -1 !important;
     }
-    section:has(> div[style*="grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 34px; align-items: end"]):not([data-screen-label="03 Let go of the past"]) {
-      display: flex !important;
-      flex-direction: column !important;
-      margin-bottom: 40px !important;
-      padding-bottom: 24px !important;
-    }
-    section:has(> div[style*="grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 34px; align-items: end"]):not([data-screen-label^="01 "]):not([data-screen-label="03 Let go of the past"]) {
-      padding-top: 24px !important;
-    }
-    section:has(> div[style*="grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 34px; align-items: end"]):not([data-screen-label="03 Let go of the past"]) > div[style*="grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 34px; align-items: end"] {
-      order: 1 !important;
-      margin-top: 28px !important;
-    }
-    section:has(> div[style*="grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 34px; align-items: end"]):not([data-screen-label="03 Let go of the past"]) > *:not([style*="grid-template-columns"]) {
-      order: -1 !important;
-    }
-    section[data-screen-label="03 Let go of the past"] { margin-bottom: 40px !important; }
-    section[data-screen-label="03 Let go of the past"] > div[style*="grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: 34px; align-items: end"] {
-      padding-bottom: 24px !important;
-    }
     header[style*="grid-template-columns"] { display: none !important; }
     header[id] + section, header[id] + div { padding-top: 20px !important; }
     #menu-toggle {
@@ -294,52 +274,6 @@
 
   
 
-  <section data-screen-label="03 Let go of the past" style="padding: 92px 34px 0;">
-    <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 34px; align-items: end; padding-bottom: 44px;">
-      <h2 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.95; min-width: 0;; white-space: nowrap">Let go of the past</h2><div style="max-width: 440px;">
-        <p style="margin: 0; font-size: 10px; line-height: 1.6;"><span style="display: block;">Nestled in Japan's pristine nature,</span><span style="display: block;">Therman Wellness Resort delivers an unparalleled</span><span style="display: block;">high-end retreat focused on mind-body rejuvenation,</span><span style="display: block;">bespoke healing therapies, and refined Japanese hospitality.</span></p>
-        
-      </div>
-      
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 26px; align-items: start;">
-      <div style="display: flex; flex-direction: column;">
-        <div style="position: relative; width: 100%; aspect-ratio: 3 / 4.4; background: #eceae5;">
-          <image-slot id="grid-therman" shape="rect" fit="cover" src="./media/grid-therman.webp" placeholder="Yoga on the lawn"></image-slot>
-        </div>
-        <h3 style="margin: 18px 0 14px; font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 26px; letter-spacing: 0.04em;"><a href="./brand.html">THERMAN</a></h3>
-        <p style="margin: 0; font-size: 10px; line-height: 1.6; color: #3a3a36;">Nestled in Japan’s pristine nature, Therman Wellness Resort delivers an unparalleled high-end retreat focused on mind-body rejuvenation.</p>
-      </div>
-      <div style="display: flex; flex-direction: column;">
-        <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; background: #eceae5;">
-          <image-slot id="grid-stay" shape="rect" fit="cover" src="./media/grid-stay.webp" placeholder="Golf course from above"></image-slot>
-        </div>
-        <h3 style="margin: 18px 0 14px; font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 26px; letter-spacing: 0.04em;"><a href="./stay.html" style="white-space: nowrap;">WELLNESS &amp; STAY</a></h3>
-        <p style="margin: 0; font-size: 10px; line-height: 1.6; color: #3a3a36;">Rooms held low against the slope, each one turned toward a different part of the landscape.</p>
-      </div>
-      <div style="display: flex; flex-direction: column;">
-        <div style="position: relative; width: 100%; aspect-ratio: 3 / 4.4; background: #eceae5;">
-          <image-slot id="grid-wellness" shape="rect" fit="cover" src="./media/grid-wellness.webp" placeholder="Bath facing the valley"></image-slot>
-        </div>
-        <h3 style="margin: 18px 0 14px; font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 26px; letter-spacing: 0.04em;"><a href="./wellness.html">AMAC WELLNESS &amp; BEAUTY</a></h3>
-        <p style="margin: 0; font-size: 10px; line-height: 1.6; color: #3a3a36;">Water and touch, breath and movement, or a long walk across the course. Programmes run daily, by reservation.</p>
-      </div>
-      <div style="display: flex; flex-direction: column;">
-        <div style="position: relative; width: 100%; aspect-ratio: 1 / 1; background: #eceae5;">
-          <image-slot id="grid-dining" shape="rect" fit="cover" src="./media/grid-dining-v3.webp" placeholder="Kitchen counter with a view"></image-slot>
-        </div>
-        <h3 style="margin: 18px 0 14px; font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 26px; letter-spacing: 0.04em;"><a href="./dining.html">DINING</a></h3>
-        <p style="margin: 0; font-size: 10px; line-height: 1.6; color: #3a3a36;">One seasonal menu cooked over fire, and a lounge for the long afternoon.</p>
-      </div>
-      <div style="display: flex; flex-direction: column;">
-        <div style="position: relative; width: 100%; aspect-ratio: 3 / 4.4; background: #eceae5;">
-          <image-slot id="grid-product" shape="rect" fit="cover" src="./media/grid-product.webp" placeholder="Linen and timber in the light"></image-slot>
-        </div>
-        <h3 style="margin: 18px 0 14px; font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 26px; letter-spacing: 0.04em;"><a href="./product.html">PRODUCT</a></h3>
-        <p style="margin: 0; font-size: 10px; line-height: 1.6; color: #3a3a36;">Care, cloth, furniture and tea — the resort’s materials, carried into everyday life.</p>
-      </div>
-    </div>
-  </section>
 
   <div id="stay" style="padding: 52px 34px 18px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 34px; align-items: end;">
     <h2 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.95; min-width: 0;; white-space: nowrap">Stay at THERMAN</h2>
