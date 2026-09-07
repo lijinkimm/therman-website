@@ -311,7 +311,7 @@
             // call from the observer (no further callbacks fire while
             // they stay in view), so a silently-rejected attempt can
             // leave them stuck paused forever. Retry until it sticks.
-            if (video.paused && !video.hasAttribute("data-src")) {
+            if (video.paused) {
               var retryPromise = video.play();
               if (retryPromise && retryPromise.catch) retryPromise.catch(function () {});
             }
