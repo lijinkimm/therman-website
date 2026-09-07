@@ -18,9 +18,9 @@
     ] },
     { href: "./stay.html", label: "WELLNESS & STAY" },
     { href: "./product.html", label: "PRODUCT", sub: [
-      { href: "./fabric.html", label: "TEXTILES" },
       { href: "./furniture.html", label: "FURNITURE" },
-      { href: "./oocoffee.html", label: "O O C O F F E E" }
+      { href: "./oocoffee.html", label: "O O C O F F E E" },
+      { href: "./fabric.html", label: "TEXTILES" }
     ] }
   ];
 
