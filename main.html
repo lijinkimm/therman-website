@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&amp;family=Jost:wght@100..900&amp;display=swap" rel="stylesheet" fetchpriority="high">
+<script src="./image-slot.js"></script>
+<script src="./mobile-nav.js?v=19"></script>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: 130px; scroll-behavior: smooth; }
+
+  body { margin: 0; background: #fdfdfc; color: #0a0a0a; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #6b6b66; }
+  .nav-dining.nav-active:hover .nav-sub, .nav-dining.nav-active:focus-within .nav-sub { display: flex !important; }
+  .nav-sub > a { background: #0a0a0a; color: #fdfdfc; padding: 0 6px; line-height: 1.15; transition: background .25s ease; }
+  .nav-sub > a:hover { background: #4a4a4a; }
+  ::selection { background: #0a0a0a; color: #fdfdfc; }
+  #mobile-logo { display: none; }
+  #mobile-nav-overlay { display: none; }
+    [style*="font-size: min(80px"] { font-size: min(52px, 2.6vw) !important; white-space: normal !important; }
+  @media (max-width: 768px) {
+    html, body { overflow-x: hidden !important; max-width: 100vw !important; }
+    section[data-screen-label="01 Brand Film"] { padding-top: 24px !important; }
+    *:not(header)[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+    [style*="grid-area: 1 / 1"] { grid-column: 1 !important; grid-row: 1 !important; }
+    [style*="grid-area: 1 / 2"] { grid-column: 1 !important; grid-row: 2 !important; }
+    section[style*="grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr)"] {
+      display: flex !important;
+      flex-direction: column !important;
+      margin-bottom: 40px !important;
+    }
+    section[style*="grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr)"] > *:has(img, video, image-slot) {
+      order: -1 !important;
+    }
+    section[style*="grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr)"] > * {
+      width: 100% !important;
+      align-self: stretch !important;
+    }
+    [style*="padding: 30px 40px 30px 44px"], [style*="padding: 30px 40px 30px 54px"] {
+      padding: 24px 0 0 !important;
+    }
+    [style*="justify-self: center"] { justify-self: stretch !important; }
+    section:has(> div[style*="grid-template-columns: minmax(0px, 58%)"]) {
+      display: flex !important;
+      flex-direction: column !important;
+      margin-bottom: 40px !important;
+    }
+    section:has(> div[style*="grid-template-columns: minmax(0px, 58%)"]):not([data-screen-label^="01 "]) {
+      padding-top: 24px !important;
+    }
+    section:has(> div[style*="grid-template-columns: minmax(0px, 58%)"]) {
+      padding-bottom: 24px !important;
+    }
+    section:has(> div[style*="grid-template-columns: minmax(0px, 58%)"]) > div[style*="grid-template-columns: minmax(0px, 58%)"] {
+      order: 1 !important;
+      margin-top: 28px !important;
+    }
+    section:has(> div[style*="grid-template-columns: minmax(0px, 58%)"]) > *:not([style*="grid-template-columns"]) {
+      order: -1 !important;
+    }
+    header[style*="grid-template-columns"] { display: none !important; }
+    header[id] + section, header[id] + div { padding-top: 20px !important; }
+    #menu-toggle {
+      display: flex !important;
+      width: 38px !important;
+      height: 22px !important;
+      flex: 0 0 38px !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      position: absolute !important;
+      top: 12px !important;
+      right: 16px !important;
+    }
+    #menu-toggle span { display: block !important; width: 100% !important; height: 5px !important; background: #0a0a0a !important; flex: none !important; }
+    #mobile-logo { display: none !important; }
+    #mobile-nav-overlay {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 300;
+      background: #fdfdfc;
+      padding: 14px 64px 14px 10px;
+    }
+    #mobile-nav-overlay .mn-top-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      column-gap: 16px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    #mobile-nav-overlay .mn-code { justify-self: start; }
+    #mobile-nav-overlay .mn-brand {
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #0a0a0a;
+    }
+    #mobile-nav-overlay .mn-brand-tm {
+      font-size: 0.4em;
+      font-weight: 700;
+      vertical-align: super;
+      letter-spacing: 0;
+      margin-left: 2px;
+    }
+    #mobile-nav-overlay .mn-code {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      color: #0a0a0a;
+    }
+    #mobile-nav-overlay .mn-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      column-gap: 16px;
+      row-gap: 6px;
+    }
+    #mobile-nav-overlay .mn-grid > a {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 9.5px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: #0a0a0a;
+    }
+    #mobile-nav-overlay .mn-grid > a.mn-active {
+      background: #0a0a0a;
+      color: #fdfdfc;
+      padding: 4px 8px;
+      margin-top: -4px;
+      margin-bottom: -4px;
+      width: fit-content;
+    }
+    #mobile-nav-overlay .mn-sub-container { margin-top: 6px; }
+    #mobile-nav-overlay .mn-sub {
+      display: none;
+      width: fit-content;
+      max-width: 100%;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px 20px;
+      padding: 5px 8px;
+      background: #0a0a0a;
+    }
+    #mobile-nav-overlay .mn-sub.mn-sub-open { display: flex; }
+    #mobile-nav-overlay .mn-sub a {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 8px;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: #fdfdfc;
+    }
+    [style*="font-size: 122px"] { font-size: 52px !important; }
+    [style*="font-size: 60px"] { font-size: 36px !important; }
+    [style*="font-size: min(80px"] { font-size: 36px !important; white-space: normal !important; }
+    p[style*="margin: 0px 0px 18px"] { margin: 0 0 8px !important; }
+    p[style*="margin: 0px 0px 20px"] { margin: 0 0 8px !important; }
+    footer[style*="border-top: 1px solid"] { border-top: none !important; }
+    [style*="letter-spacing: 0.4em; padding-left: 0.4em"], [style*="letter-spacing: 0.34em; padding-left: 0.34em"] { padding-left: 0 !important; }
+    footer [style*="border-top: 1px solid"] { border-top: none !important; }
+    [style*="padding: 0px 34px 24px;"] { padding: 0 8px 24px !important; }
+    [style*="padding: 0px 34px 40px;"] { padding: 0 8px 40px !important; }
+    [style*="padding: 0px 34px 72px;"] { padding: 0 8px 72px !important; }
+    [style*="padding: 0px 34px;"] { padding: 0 8px !important; }
+    [style*="padding: 126px 34px 0px;"] { padding: 126px 8px 0 !important; }
+    [style*="padding: 128px 34px 72px;"] { padding: 128px 8px 72px !important; }
+    [style*="padding: 132px 34px 0px;"] { padding: 132px 8px 0 !important; }
+    [style*="padding: 148px 34px 0px;"] { padding: 148px 8px 0 !important; }
+    [style*="padding: 148px 34px 40px;"] { padding: 148px 8px 40px !important; }
+    [style*="padding: 152px 34px 0px;"] { padding: 152px 8px 0 !important; }
+    [style*="padding: 152px 34px 24px;"] { padding: 152px 8px 24px !important; }
+    [style*="padding: 156px 34px 24px;"] { padding: 156px 8px 24px !important; }
+    [style*="padding: 24px 34px 0px;"] { padding: 24px 8px 0 !important; }
+    [style*="padding: 24px 34px 100px;"] { padding: 24px 8px 100px !important; }
+    [style*="padding: 24px 34px 24px;"] { padding: 24px 8px 24px !important; }
+    [style*="padding: 24px 34px;"] { padding: 24px 8px !important; }
+    [style*="padding: 26px 34px 22px;"] { padding: 26px 8px 22px !important; }
+    [style*="padding: 44px 34px 72px;"] { padding: 44px 8px 72px !important; }
+    [style*="padding: 48px 34px 20px;"] { padding: 48px 8px 8px !important; }
+    [style*="padding: 52px 34px 18px;"] { padding: 52px 8px 24px !important; }
+    [style*="padding: 60px 34px 0px;"] { padding: 60px 8px 0 !important; }
+    [style*="padding: 72px 34px 0px;"] { padding: 72px 8px 0 !important; }
+    [style*="padding: 72px 34px 72px;"] { padding: 72px 8px 72px !important; }
+    [style*="padding: 72px 34px;"] { padding: 72px 8px !important; }
+    [style*="padding: 76px 34px 40px;"] { padding: 76px 8px 40px !important; }
+    [style*="padding: 92px 34px 0px;"] { padding: 92px 8px 0 !important; }
+    [style*="padding: 92px 34px 24px;"] { padding: 92px 8px 24px !important; }
+    #hero-video-desktop { display: none !important; }
+    #hero-video-mobile { display: block !important; object-fit: cover !important; }
+    #hero-video-wrap { display: block !important; height: auto !important; min-height: 0 !important; aspect-ratio: 1200 / 596 !important; }
+    #desktop-hero-redesign { display: none !important; }
+    #brand-film-wrap { height: auto !important; min-height: 0 !important; aspect-ratio: 2 / 1 !important; }
+    section[data-screen-label="00 Brand Video"] { padding: 96px 8px 0 !important; }
+    #stay h2 { text-transform: uppercase !important; }
+    #stay, #wellness, #dining, #product { padding-left: 8px !important; padding-right: 8px !important; }
+    #mobile-therm-title {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: baseline !important;
+      flex-wrap: wrap !important;
+      row-gap: 2px !important;
+    }
+    #mobile-therm-title > div { font-size: 36px !important; }
+    #mobile-therm-title p { display: none !important; }
+    #mobile-therm-copy { display: block !important; aspect-ratio: auto !important; height: auto !important; }
+    #hero-lay-down-overlay { display: none !important; }
+  }
+</style>
+</helmet>
+
+<div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #fdfdfc; color: #0a0a0a; min-height: 100vh;">
+
+  <header id="site-header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #fdfdfc; display: grid; grid-template-columns: max-content minmax(max-content, 1fr) minmax(0, 300px) auto; gap: 20px; align-items: start; padding: 26px 34px 22px;">
+    <nav style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 24px; row-gap: 7px; font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase;">
+      <a href="./index.html">THERMAN</a>
+      <span class="nav-dining" style="position: relative; display: inline-block; justify-self: start;"><a href="./dining.html">DINING</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./gamasote.html">GAMASOTE</a><a href="./jang-paul-gourmet.html">JANG PAUL GOURMET</a><a href="./nurun-bowl.html">NURUN BOWL</a><a href="./poksam-bbq.html">POKSAM BBQ</a></span></span>
+      <a href="./stay.html" style="white-space: nowrap;">WELLNESS &amp; STAY</a>
+      <span class="nav-dining" style="position: relative; display: inline-block; justify-self: start;"><a href="./product.html">PRODUCT</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./furniture.html">FURNITURE</a><a href="./oocoffee.html">O O C O F F E E</a><a href="./fabric.html">TEXTILES</a></span></span>
+      <span class="nav-dining" style="position: relative; display: inline-block; justify-self: start;"><a href="./wellness.html">AMAC WELLNESS &amp; BEAUTY</a><span class="nav-sub" style="display: none; position: absolute; left: 100%; top: 0; padding: 0 10px 10px 16px; z-index: 60; background: #fdfdfc; flex-direction: row; gap: 22px; white-space: nowrap;"><a href="./amac-spa.html">AMAC SPA</a><a href="./amac-cosmetic.html">AMAC COSMETICS</a><a href="./amac-medi.html">AMAC MEDI</a></span></span>
+      <span></span>
+    </nav>
+    <div style="font-family: 'Oswald', sans-serif; font-weight: 300; font-size: clamp(30px, 3.2vw, 58px); line-height: 0.82; letter-spacing: -0.01em; text-align: right; padding-right: 4px;">53F4_2H</div>
+    <p style="margin: 0; font-size: 10px; line-height: 1.5; min-width: 0;">Nestled in Japan's pristine nature, Therman Wellness Resort delivers an unparalleled high-end retreat focused on mind-body rejuvenation, bespoke healing therapies, and refined Japanese hospitality.</p>
+    <button id="menu-toggle" aria-label="Menu" style="justify-self: end; margin-top: 6px; display: flex; flex-direction: column; gap: 6px; width: 38px; padding: 0; border: 0; background: none; cursor: pointer;">
+      <span style="display: block; height: 5px; background: #0a0a0a;"></span>
+      <span style="display: block; height: 5px; background: #0a0a0a;"></span>
+    </button>
+  </header>
+
+  <section data-screen-label="00 Brand Video" style="padding: 116px 34px 0;">
+    <div id="mobile-therm-title" style="display: none; grid-template-columns: minmax(0, auto) minmax(0, 1fr) minmax(0, auto); gap: 40px; align-items: start; padding: 0 0 12px;">
+      <div style="font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 60px; line-height: 0.9; letter-spacing: -0.005em; white-space: nowrap;">THERM</div>
+      <p style="margin: 0; justify-self: center;"></p>
+      <div style="font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 60px; line-height: 0.9; letter-spacing: -0.005em; white-space: nowrap; text-align: right;">+MAN</div>
+    </div>
+    <div id="hero-video-wrap" style="position: relative; width: 100%; aspect-ratio: 10 / 5; height: auto; background: #0a0a0a; overflow: hidden; display: none;">
+      <video id="hero-video-mobile" data-src="./media/therman-main-film-mobile.mp4" poster="./media/therman-main-film-mobile-poster.jpg" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="none" fetchpriority="low" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom;"></video>
+    </div>
+    <div id="desktop-hero-redesign">
+      <div style="font-family: 'Oswald', sans-serif; font-weight: 200; font-size: min(150px, 7.6vw); line-height: 0.82; letter-spacing: -0.01em; text-transform: uppercase; white-space: nowrap;">ORIGIN, RECOVERY</div>
+      <div style="font-family: 'Oswald', sans-serif; font-weight: 200; font-size: min(150px, 7.6vw); line-height: 0.82; letter-spacing: -0.01em; text-transform: uppercase; white-space: nowrap; margin: 0 0 20px;">TOMORROW _ THERMAN</div>
+      <div style="display: grid; grid-template-columns: minmax(0, 62%) minmax(0, 1fr); gap: 20px;">
+        <div style="position: relative; width: 100%; aspect-ratio: 10 / 5; background: #0a0a0a; overflow: hidden;">
+          <video id="hero-video-desktop" data-src="./media/therman-main-film.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="none" fetchpriority="high" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom;"></video>
+        </div>
+        <div style="display: flex; flex-direction: column; justify-content: space-between;">
+          <p style="margin: 0; font-size: 10px; line-height: 1.7;">Escape the urban bustle and immerse yourself in absolute tranquility, where your sanctuary at Therman Wellness begins. Natural thermal waters rich in minerals combine with specialized medical detox solutions to melt away deep fatigue and restore cellular vitality. Unwind in exclusive, secluded suites while expert therapists deliver tailored 1:1 recovery care designed for your body's specific needs. As artfully crafted organic cuisine nourishes you from within, guided meditation and forest yoga reclaim your inner peace. Soaking in panoramic views from our open-air infinity bade pool, enveloped by natural soundscapes and therapeutic aromatherapy, you will awaken your senses, rejuvenate your spirit, and return to daily life fully energized.</p>
+          <div style="font-family: 'Jost', sans-serif; font-weight: 200; font-size: 22px; line-height: 1.2; text-transform: uppercase;">THERMAN<br>WELLNESS<br>RESORT</div>
+        </div>
+      </div>
+    </div>
+    <p id="mobile-therm-copy" style="display: none; margin: 24px 0 0; font-size: 12px; line-height: 1.6;">The prefix Therm- originates from the Latin thermae (public thermal baths/resorts) and the Ancient Greek thermos (warmth), conveying feelings of healing, warmth, and comfort.</p>
+  </section>
+
+  <section data-screen-label="01 Brand Film" style="padding: 132px 34px 0;">
+    <div id="brand-film-wrap" style="position: relative; width: 100%; height: calc(88vh - 172px); min-height: 480px; background: #0a0a0a; overflow: hidden;">
+      <video src="./media/brand-film.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="none" fetchpriority="high" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"></video>
+      <div id="hero-lay-down-overlay" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; padding: 30px 0 40px; pointer-events: none; color: #ffffff; text-align: center;">
+        <p style="margin: 0; font-size: 10px; line-height: 1.55;"><span style="display: block;">Nestled in Japan's pristine nature,</span><span style="display: block;">Therman Wellness Resort delivers an unparalleled</span><span style="display: block;">high-end retreat focused on mind-body rejuvenation,</span><span style="display: block;">bespoke healing therapies, and refined Japanese hospitality.</span></p>
+        <div>
+          <div style="font-family: 'Jost', sans-serif; font-weight: 200; font-size: 34px; letter-spacing: 0.42em; padding-left: 0.42em;">THERMAN</div>
+          <div style="font-family: 'Jost', sans-serif; font-weight: 300; font-size: 14px; letter-spacing: 0.62em; padding-left: 0.62em; margin-top: 6px;">WELLNESS</div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; padding: 14px 0 0; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6b6b66;">
+      <span>THERMAN WELLNESS RESORT</span>
+      <span>JAPAN — 53F4_2H</span>
+    </div>
+  </section>
+
+  
+
+
+  <div id="stay" style="padding: 52px 34px 18px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 34px; align-items: end;">
+    <h2 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.95; min-width: 0;; white-space: nowrap; text-transform: uppercase">Stay at THERMAN</h2>
+    <div style="max-width: 460px;">
+      
+      
+    <p style="margin: 0; font-size: 10px; line-height: 1.6;">Rooms held low against the slope, each one turned toward a different part of the landscape. Two types, both with a bath set at the window.</p></div>
+  </div>
+
+  <section data-screen-label="03 Stay — Room 01" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <image-slot id="therman-stay-1" shape="rect" fit="cover" src="./media/therman-stay-1.webp" placeholder="Guest room — interior with a view"></image-slot>
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 54px;">
+      <div style="display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #6b6b66;">
+        
+      </div>
+      <div style="max-width: 520px;">
+        
+        <h2 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0; font-weight: 200; white-space: nowrap; text-transform: uppercase">A Quiet Sense of Place</h2>
+        <p style="margin: 0 0 20px; font-size: 10px; line-height: 1.65">Discover spaces shaped by their surroundings, <br>where thoughtful details and understated comfort <br>invite you to settle in and feel at ease.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="04 Stay — Room 02" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 44px;">
+      <div style="display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #6b6b66;">
+        
+      </div>
+      <div style="max-width: 520px;">
+        <h2 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0; text-transform: uppercase; white-space: nowrap">My Morning <br>with Nature</h2>
+        <p style="margin: 0 0 20px; font-size: 10px; line-height: 1.65;">Wake to the gentle rhythm of nature, where shifting light and the <br>surrounding landscape set the pace for an unhurried day.</p>
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <video src="./media/stay-my-morning.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+    </div>
+  </section>
+
+  <div id="wellness" style="padding: 52px 34px 18px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 34px; align-items: end;">
+    <h2 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.95; min-width: 0; white-space: nowrap; text-transform: uppercase">WELLNESS AT AMAC</h2>
+    <div style="max-width: 460px;">
+      
+      
+    </div>
+  </div>
+
+  <section data-screen-label="05 Wellness — Spa" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <video src="./media/amac-spa-main.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 54px;">
+      <div style="display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #6b6b66;">
+        
+        
+      </div>
+      <div style="max-width: 520px;">
+        <h2 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0; text-transform: uppercase; white-space: nowrap">AMAC SPA&nbsp;</h2>
+        <p style="margin: 0 0 20px; font-size: 10px; line-height: 1.65;">Private face and body treatments tailored to your condition.<br>Expert hands, AMAC formulas and quiet spaces work together.<br>Every ritual restores balance across the skin, body and mind.</p>
+        
+        
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="06 Wellness — Yoga" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 44px;">
+      <div style="display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #6b6b66;">
+        
+        
+      </div>
+      <div style="max-width: 520px;">
+        <h2 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0; text-transform: uppercase; white-space: nowrap">AMAC COSMETIC</h2>
+        <p style="margin: 0 0 20px; font-size: 10px; line-height: 1.65;">Neurocosmetic care inspired by the connection between skin and senses.<br>Advanced formulas support hydration, resilience and visible vitality.<br>The restorative experience of AMAC continues in your daily ritual.<br></p>
+        
+        
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/main-amac-cosmetic.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
+
+  <section data-screen-label="07 Wellness — Golf" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <img src="./media/main-amac-medi.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 54px;">
+      <div style="display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #6b6b66;">
+        
+        
+      </div>
+      <div style="max-width: 520px;">
+        <h2 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0; text-transform: uppercase; white-space: nowrap">AMAC MEDI</h2>
+        <div style="margin: 0 0 20px; font-size: 10px; line-height: 1.65;"><p>Science-led solutions unite recovery, inner beauty and longevity care.<br>Hyperbaric oxygen, functional nutrition and personalised programmes work together. A deeper approach to sustaining balance and vitality from within.</p></div>
+        
+        
+      </div>
+    </div>
+  </section>
+
+  
+
+  <div id="dining" style="padding: 52px 34px 18px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 34px; align-items: end;">
+    
+    <h2 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 1.12; min-width: 0; text-transform: uppercase; white-space: nowrap">Dining</h2><div style="max-width: 460px;">
+      <p style="margin: 0; font-size: 10px; line-height: 1.6;">Guided by the rhythm of the seasons, each dish begins with ingredients gathered from nature at their best. Prepared with care and simplicity, the food at THERMAN is designed to nourish the body,&nbsp;</p>
+      
+    </div>
+  </div>
+
+  <section data-screen-label="08 Dining — Restaurant" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 44px;">
+      
+      <div style="max-width: 520px;">
+        <h2 style="margin: 0 0 18px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0; white-space: nowrap; text-transform: uppercase">A Taste of the Season</h2>
+        
+        <p style="margin: 0 0 20px; font-size: 10px; line-height: 1.65">Discover the flavours of the season through thoughtfully <br>prepared dishes that let each ingredient’s natural character shine.</p>
+        
+        
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <video src="./media/dining-season.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+    </div>
+  </section>
+
+  <section data-screen-label="09 Dining — Lounge" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <video src="./media/dining-with-a-view.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 54px;">
+      <div style="display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #6b6b66;">
+        
+        
+      </div>
+      <div style="max-width: 520px;">
+        <h2 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0; text-transform: uppercase; white-space: nowrap">Dining with a View</h2>
+        <p style="margin: 0 0 20px; font-size: 10px; line-height: 1.65;">Take in the surrounding landscape as you savour each bite. <br>An invitation to linger at the table, enjoy the changing light,<br>&nbsp;and let conversation unfold.</p>
+        
+        
+      </div>
+    </div>
+  </section>
+
+  <div id="product" style="padding: 52px 34px 18px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 34px; align-items: end;">
+    <h2 style="margin: 0; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.95; min-width: 0; text-transform: uppercase; white-space: nowrap">Product</h2>
+    <div style="max-width: 460px;">
+      
+      
+    <p style="margin: 0; font-size: 10px; line-height: 1.6;">The resort’s materials, carried into everyday life <br>— care, cloth, furniture and tea.</p></div>
+  </div>
+
+
+  <section data-screen-label="11 Product — Fabric" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <video src="./media/therman-textiles-main.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 54px;">
+      <div style="display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #6b6b66;">
+        <span>PRODUCT</span>
+        
+      </div>
+      <div style="max-width: 520px;">
+        <h2 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0; white-space: nowrap">THERMAN TEXTILES</h2>
+        <p style="margin: 0 0 20px; font-size: 10px; line-height: 1.65;">Bedding and towels created for quiet comfort—<br>soft, comforting textures that bring the warmth of THERMAN <br>into your everyday home</p>
+        
+        
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="12 Product — Furniture" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 44px;">
+      <div style="display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #6b6b66;">
+        <span>PRODUCT</span>
+        
+      </div>
+      <div style="max-width: 520px;">
+        <h2 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0; white-space: nowrap">THERMAN PIECES&nbsp;</h2>
+        <p style="margin: 0 0 20px; font-size: 10px; line-height: 1.65;">Furniture originally designed for the rooms of THERMAN, where comfort, <br>proportion and atmosphere are considered as one. Each piece can be <br>thoughtfully tailored and made to order, bringing the same sense of balance <br>and quiet refinement into your own space.</p>
+        
+        
+      </div>
+    </div>
+    <div style="position: relative; background: #eceae5; grid-column: 2; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <video src="./media/therman-pieces.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+    </div>
+  </section>
+
+  <section data-screen-label="13 Product — Tea" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 0 34px;">
+    <div style="position: relative; background: #eceae5; grid-column: 1; grid-row: 1; min-width: 0; aspect-ratio: 1 / 1; align-self: center;">
+      <video src="./media/oocoffee-main.mp4" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+    </div>
+    <div style="grid-column: 2; grid-row: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 30px 40px 30px 54px;">
+      <div style="display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #6b6b66;">
+        <span>PRODUCT</span>
+        
+      </div>
+      <div style="max-width: 520px;">
+        
+        <h2 style="margin: 0 0 26px; font-family: 'Jost', sans-serif; font-weight: 200; font-size: min(80px, 3.4vw); line-height: 0.98; min-width: 0; white-space: nowrap">O O C O F F E E</h2><p style="margin: 0 0 20px; font-size: 10px; line-height: 1.65;">First enjoyed in the quiet afternoons of THERMAN, each blend is packaged <br>for effortless preparation at home—bringing a familiar moment of warmth <br>and ease into your everyday routine.</p>
+        
+        
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding: 76px 34px 40px; border-top: 1px solid #d8d5ce;">
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 34px; border-top: 1px solid #d8d5ce; padding-top: 34px; font-size: 12px; line-height: 1.9;">
+      <div>
+        <div style="font-family: 'Jost', sans-serif; font-weight: 200; font-size: 22px; letter-spacing: 0.4em; padding-left: 0.4em;">THERMAN</div>
+        <div style="font-size: 11px; letter-spacing: 0.34em; padding-left: 0.34em; margin-top: 6px; color: #6b6b66;">WELLNESS</div>
+      </div>
+      <div style="color: #3a3a36;">
+        <a href="./index.html#philosophy">Brand Philosophy</a><br>
+        <a href="./index.html#setting">The Setting</a><br>
+        <a href="./index.html#architecture">Architecture &amp; Spaces</a>
+      </div>
+      <div style="color: #3a3a36;">
+        <a href="./stay.html">Rooms &amp; Reservation</a><br>
+        <a href="./wellness.html">Wellness Programmes</a><br>
+        <a href="./dining.html">Dining &amp; Hours</a>
+      </div>
+      <div style="color: #3a3a36;">
+        Reservations<br>
+        reservations@therman.jp<br>
+        Japan — 53F4_2H
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; padding-top: 26px; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #9a978f;">
+      <span>© 2026 THERMAN WELLNESS RESORT</span>
+      <span>ALL RIGHTS RESERVED</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

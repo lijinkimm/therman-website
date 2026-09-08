@@ -70,11 +70,11 @@
       var topRow = document.createElement("div");
       topRow.className = "mn-top-row";
       var brand = document.createElement("a");
-      brand.href = "./brand.html";
+      brand.href = "./index.html";
       brand.className = "mn-brand";
       brand.innerHTML = "THERMAN<span class=\"mn-brand-tm\">TM</span>";
       var code = document.createElement("a");
-      code.href = "./index.html";
+      code.href = "./main.html";
       code.className = "mn-code";
       code.textContent = "53F4_2H";
       topRow.appendChild(brand);
